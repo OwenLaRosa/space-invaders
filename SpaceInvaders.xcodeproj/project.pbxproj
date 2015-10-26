@@ -16,6 +16,7 @@
 		5A896E941BDEC5D2006633FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A896E921BDEC5D2006633FF /* LaunchScreen.storyboard */; };
 		5A896E9F1BDEC5D2006633FF /* SpaceInvadersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A896E9E1BDEC5D2006633FF /* SpaceInvadersTests.swift */; };
 		5A896EAA1BDEC5D2006633FF /* SpaceInvadersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A896EA91BDEC5D2006633FF /* SpaceInvadersUITests.swift */; };
+		5A896EB81BDEC86C006633FF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A896EB71BDEC86C006633FF /* Constants.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		5A896EA51BDEC5D2006633FF /* SpaceInvadersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpaceInvadersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A896EA91BDEC5D2006633FF /* SpaceInvadersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceInvadersUITests.swift; sourceTree = "<group>"; };
 		5A896EAB1BDEC5D2006633FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A896EB71BDEC86C006633FF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				5A896E851BDEC5D2006633FF /* AppDelegate.swift */,
 				5A896E871BDEC5D2006633FF /* GameScene.sks */,
 				5A896E891BDEC5D2006633FF /* GameScene.swift */,
+				5A896EB71BDEC86C006633FF /* Constants.swift */,
 				5A896E8B1BDEC5D2006633FF /* GameViewController.swift */,
 				5A896E8D1BDEC5D2006633FF /* Main.storyboard */,
 				5A896E901BDEC5D2006633FF /* Assets.xcassets */,
@@ -268,6 +271,7 @@
 				5A896E8A1BDEC5D2006633FF /* GameScene.swift in Sources */,
 				5A896E8C1BDEC5D2006633FF /* GameViewController.swift in Sources */,
 				5A896E861BDEC5D2006633FF /* AppDelegate.swift in Sources */,
+				5A896EB81BDEC86C006633FF /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
