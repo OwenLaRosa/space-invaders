@@ -7,3 +7,10 @@
 //
 
 import Foundation
+import SpriteKit
+
+// MARK: - Player
+
+let kShipName = "ship"
+let kShipSize = CGSize(width: 48, height: 24)
+let kShipColor = SKColor.greenColor()

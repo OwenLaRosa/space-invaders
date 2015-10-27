@@ -500,6 +500,7 @@
 				5A896EB01BDEC5D2006633FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5A896EB11BDEC5D2006633FF /* Build configuration list for PBXNativeTarget "SpaceInvadersTests" */ = {
 			isa = XCConfigurationList;
@@ -508,6 +509,7 @@
 				5A896EB31BDEC5D2006633FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5A896EB41BDEC5D2006633FF /* Build configuration list for PBXNativeTarget "SpaceInvadersUITests" */ = {
 			isa = XCConfigurationList;
@@ -516,6 +518,7 @@
 				5A896EB61BDEC5D2006633FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
