@@ -82,6 +82,7 @@ class GameScene: SKScene {
         let screenSize = UIScreen.mainScreen().bounds.size
         size.width = screenSize.width
         size.height = screenSize.height
+        backgroundColor = SKColor.blackColor()
     }
     
     /// Add the player's ship to the game
