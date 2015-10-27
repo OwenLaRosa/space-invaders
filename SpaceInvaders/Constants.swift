@@ -9,8 +9,24 @@
 import Foundation
 import SpriteKit
 
+// MARK: - Game
+
+let kEarth = 32
+
 // MARK: - Player
 
 let kShipName = "ship"
 let kShipSize = CGSize(width: 48, height: 24)
 let kShipColor = SKColor.greenColor()
+
+// MARK: - Aliens
+
+let kAlienName = "alien"
+let kAlienSize = CGSize(width: 32, height: 24)
+let kAlienColor = SKColor.whiteColor()
+
+let kAlienRows = 5
+let kAlienColumns = 11
+
+let kAlienVerticalSpacing = 8
+let kAlienHorizontalSpacing = 12
