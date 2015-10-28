@@ -118,7 +118,7 @@ class GameScene: SKScene {
         let distanceFromEarth = kEarth + totalHeight
         
         let xOrigin = size.width/2.0 - CGFloat(totalWidth/2) + kAlienSize.width/2.0
-        let yOrigin = CGFloat(distanceFromEarth + totalHeight/2) + kAlienSize.height/2
+        let yOrigin = CGFloat(totalHeight)*2.3 // magic number that works well on 5, 5s screen
         
         return CGPoint(x: xOrigin, y: yOrigin)
     }

@@ -22,11 +22,11 @@ let kShipColor = SKColor.greenColor()
 // MARK: - Aliens
 
 let kAlienName = "alien"
-let kAlienSize = CGSize(width: 32, height: 24)
+let kAlienSize = CGSize(width: 24, height: 18)
 let kAlienColor = SKColor.whiteColor()
 
 let kAlienRows = 5
 let kAlienColumns = 11
 
-let kAlienVerticalSpacing = 8
-let kAlienHorizontalSpacing = 12
+let kAlienVerticalSpacing = 6
+let kAlienHorizontalSpacing = 10
