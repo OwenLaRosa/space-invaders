@@ -30,3 +30,10 @@ let kAlienColumns = 11
 
 let kAlienVerticalSpacing = 6
 let kAlienHorizontalSpacing = 10
+
+let kAlienMovementX = kAlienSize.width/2
+let kAlienMovementY = kAlienSize.height/2
+
+enum MoveDirection {
+    case Left, Right
+}

@@ -57,7 +57,14 @@ class Alien: SKSpriteNode {
 
 class GameScene: SKScene {
     
+    // MARK: - GameProperties
+    var aliensLastMoved: CFTimeInterval = 50.0
+    
     var ship: Player!
+    
+    // MARK: - Alien properties
+    var alienMoveSpeed = 1.0
+    var alienMoveDirection: MoveDirection = .Right
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
@@ -75,6 +82,14 @@ class GameScene: SKScene {
    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
+        
+        // handle alien movement
+        if (currentTime - alienMoveSpeed) >=
+            aliensLastMoved {
+                // and update to the most recent time
+                aliensLastMoved = currentTime
+                moveAliens()
+        }
     }
     
     /// Configure the screen to match device size
@@ -121,6 +136,42 @@ class GameScene: SKScene {
         let yOrigin = CGFloat(totalHeight)*2.3 // magic number that works well on 5, 5s screen
         
         return CGPoint(x: xOrigin, y: yOrigin)
+    }
+    
+    /// Move aliens with the standard movement pattern
+    func moveAliens() {
+        var shouldChangeDirection = false
+        // determine if the next move would put an alien offscreen
+        enumerateChildNodesWithName(kAlienName) {alien, stop in
+            if self.alienMoveDirection == .Right && alien.position.x + kAlienMovementX > self.size.width {
+                shouldChangeDirection = true
+                return
+            } else if self.alienMoveDirection == .Left && alien.position.x - kAlienMovementX < 0 {
+                shouldChangeDirection = true
+                return
+            }
+        }
+        // if needed, change the movement direction
+        if shouldChangeDirection {
+            if alienMoveDirection == .Right {
+                alienMoveDirection = .Left
+            } else {
+                alienMoveDirection = .Right
+            }
+        }
+        enumerateChildNodesWithName(kAlienName) {alien, stop in
+            // move the aliens down if needed
+            if shouldChangeDirection {
+                alien.position.y -= kAlienMovementY
+                return
+            }
+            // otherwise, move in the appropriate direction
+            if self.alienMoveDirection == .Right  {
+                alien.position.x += kAlienMovementX
+            } else {
+                alien.position.x -= kAlienMovementX
+            }
+        }
     }
     
 }
