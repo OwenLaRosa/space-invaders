@@ -63,7 +63,8 @@ class GameScene: SKScene {
     var maxLocationX: CGFloat!
     
     // MARK: - GameProperties
-    var aliensLastMoved: CFTimeInterval = 50.0
+    var isFirstUpdate = true
+    var aliensLastMoved: CFTimeInterval = 1.0
     
     var ship: Player!
     
@@ -87,6 +88,12 @@ class GameScene: SKScene {
    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
+        
+        // wait for the game to start to perform updates
+        if isFirstUpdate {
+            aliensLastMoved += currentTime
+            isFirstUpdate = false
+        }
         
         // handle alien movement
         if (currentTime - alienMoveSpeed) >=
