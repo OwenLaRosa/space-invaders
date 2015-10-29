@@ -112,8 +112,8 @@ class GameScene: SKScene {
         backgroundColor = SKColor.blackColor()
         
         // set up consistent game arena for all device screens
-        minLocationX = getAliensOrigin().x - CGFloat(kAlienMovementX * 8) // number of movements on 5, 5s
-        maxLocationX = abs(size.width - getAliensOrigin().x) + CGFloat(kAlienMovementX * 8)
+        minLocationX = getAliensOrigin().x - CGFloat(kAlienMovementX * 8) - 1.0 // number of movements on 5, 5s
+        maxLocationX = abs(size.width - getAliensOrigin().x) + CGFloat(kAlienMovementX * 8) + 1.0
         print(minLocationX)
         print(maxLocationX)
     }
