@@ -57,6 +57,11 @@ class Alien: SKSpriteNode {
 
 class GameScene: SKScene {
     
+    // MARK: - Game Arena
+    
+    var minLocationX: CGFloat!
+    var maxLocationX: CGFloat!
+    
     // MARK: - GameProperties
     var aliensLastMoved: CFTimeInterval = 50.0
     
@@ -98,6 +103,12 @@ class GameScene: SKScene {
         size.width = screenSize.width
         size.height = screenSize.height
         backgroundColor = SKColor.blackColor()
+        
+        // set up consistent game arena for all device screens
+        minLocationX = getAliensOrigin().x - CGFloat(kAlienMovementX * 8) // number of movements on 5, 5s
+        maxLocationX = abs(size.width - getAliensOrigin().x) + CGFloat(kAlienMovementX * 8)
+        print(minLocationX)
+        print(maxLocationX)
     }
     
     /// Add the player's ship to the game
@@ -143,10 +154,10 @@ class GameScene: SKScene {
         var shouldChangeDirection = false
         // determine if the next move would put an alien offscreen
         enumerateChildNodesWithName(kAlienName) {alien, stop in
-            if self.alienMoveDirection == .Right && alien.position.x + kAlienMovementX > self.size.width {
+            if self.alienMoveDirection == .Right && alien.position.x + kAlienMovementX > self.maxLocationX {
                 shouldChangeDirection = true
                 return
-            } else if self.alienMoveDirection == .Left && alien.position.x - kAlienMovementX < 0 {
+            } else if self.alienMoveDirection == .Left && alien.position.x - kAlienMovementX < self.minLocationX {
                 shouldChangeDirection = true
                 return
             }
