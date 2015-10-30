@@ -30,6 +30,15 @@ class Player: SKSpriteNode {
         physicsBody?.mass = 0.01
     }
     
+    func shoot() {
+        let bullet = SKSpriteNode(color: kPlayerBulletColor, size: kBulletSize)
+        bullet.position = position
+        let target = CGPoint(x: bullet.position.x, y: bullet.position.y + 1000) // offscreen
+        let fireBullet = SKAction.sequence([SKAction.moveTo(target, duration: 2.0), SKAction.removeFromParent()])
+        parent?.addChild(bullet)
+        bullet.runAction(fireBullet)
+    }
+    
 }
 
 class Alien: SKSpriteNode {
@@ -65,8 +74,11 @@ class GameScene: SKScene {
     // MARK: - GameProperties
     var isFirstUpdate = true
     var aliensLastMoved: CFTimeInterval = 1.0
+    var playerLastShot = NSDate()
     
+    // MARK: - Player Properties
     var ship: Player!
+    var playerShootSpeed = 1.0
     
     // MARK: - Alien properties
     var alienMoveSpeed = 1.0
@@ -84,6 +96,10 @@ class GameScene: SKScene {
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         /* Called when a touch begins */
         
+        if abs(playerLastShot.timeIntervalSinceNow) >= playerShootSpeed {
+            playerLastShot = NSDate()
+            ship.shoot()
+        }
     }
    
     override func update(currentTime: CFTimeInterval) {

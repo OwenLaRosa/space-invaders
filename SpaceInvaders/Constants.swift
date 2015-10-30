@@ -37,3 +37,14 @@ let kAlienMovementY = kAlienSize.height/2
 enum MoveDirection {
     case Left, Right
 }
+
+// MARK: - Bullets
+
+let kPlayerBulletName = "playerBullet"
+let kAlienBulletName = "alienBulletName"
+
+let kBulletSize = CGSize(width: 2, height: 16)
+
+let kPlayerBulletColor = SKColor.greenColor()
+let kAlienBulletColor = SKColor.whiteColor()
+
