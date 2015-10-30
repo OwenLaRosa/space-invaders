@@ -34,7 +34,7 @@ class Player: SKSpriteNode {
         let bullet = SKSpriteNode(color: kPlayerBulletColor, size: kBulletSize)
         bullet.position = position
         let target = CGPoint(x: bullet.position.x, y: bullet.position.y + 1000) // offscreen
-        let fireBullet = SKAction.sequence([SKAction.moveTo(target, duration: 2.0), SKAction.removeFromParent()])
+        let fireBullet = SKAction.sequence([SKAction.moveTo(target, duration: 2.5), SKAction.removeFromParent()])
         parent?.addChild(bullet)
         bullet.runAction(fireBullet)
     }
@@ -62,6 +62,15 @@ class Alien: SKSpriteNode {
         physicsBody?.affectedByGravity = false
     }
     
+    func shoot() {
+        let bullet = SKSpriteNode(color: kAlienBulletColor, size: kBulletSize)
+        bullet.position = position
+        let target = CGPoint(x: bullet.position.x, y: bullet.position.y - 1000) // offscreen
+        let fireBullet = SKAction.sequence([SKAction.moveTo(target, duration: 5.0), SKAction.removeFromParent()])
+        parent?.addChild(bullet)
+        bullet.runAction(fireBullet)
+    }
+    
 }
 
 class GameScene: SKScene {
@@ -75,6 +84,7 @@ class GameScene: SKScene {
     var isFirstUpdate = true
     var aliensLastMoved: CFTimeInterval = 1.0
     var playerLastShot = NSDate()
+    var aliensLastShot: CFTimeInterval = 0.5
     
     // MARK: - Player Properties
     var ship: Player!
@@ -83,6 +93,7 @@ class GameScene: SKScene {
     // MARK: - Alien properties
     var alienMoveSpeed = 1.0
     var alienMoveDirection: MoveDirection = .Right
+    var alienShootSpeed = 1.5
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
@@ -108,7 +119,16 @@ class GameScene: SKScene {
         // wait for the game to start to perform updates
         if isFirstUpdate {
             aliensLastMoved += currentTime
+            aliensLastShot += currentTime
             isFirstUpdate = false
+        }
+        
+        // handle alien bullets
+        if (currentTime - alienShootSpeed) >= aliensLastShot {
+            if let nearestAlien = getNearestAlien() {
+                aliensLastShot = currentTime
+                nearestAlien.shoot()
+            }
         }
         
         // handle alien movement
@@ -206,6 +226,30 @@ class GameScene: SKScene {
                 alien.position.x -= kAlienMovementX
             }
         }
+    }
+    
+    /// Find the closest alien that can hit the player
+    func getNearestAlien() -> Alien? {
+        let playerPosition = ship.position
+        var nearestAlien: Alien!
+        enumerateChildNodesWithName(kAlienName) {alien, stop in
+            if nearestAlien != nil {
+                // check if the alien is closer vertically
+                if alien.position.y < nearestAlien!.position.y {
+                    nearestAlien = alien as! Alien
+                }
+                // check if the alien is closer horizontally
+                if abs(alien.position.x - playerPosition.x) <  abs(nearestAlien.position.x - playerPosition.x) {
+                    nearestAlien = alien as! Alien
+                }
+            } else {
+                // determine if the alien can hit the player
+                if abs(alien.position.x - playerPosition.x) <= kShipSize.width {
+                    nearestAlien = alien as! Alien
+                }
+            }
+        }
+        return nearestAlien
     }
     
 }
