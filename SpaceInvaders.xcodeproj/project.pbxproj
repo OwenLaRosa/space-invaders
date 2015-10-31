@@ -17,6 +17,8 @@
 		5A896E9F1BDEC5D2006633FF /* SpaceInvadersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A896E9E1BDEC5D2006633FF /* SpaceInvadersTests.swift */; };
 		5A896EAA1BDEC5D2006633FF /* SpaceInvadersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A896EA91BDEC5D2006633FF /* SpaceInvadersUITests.swift */; };
 		5A896EB81BDEC86C006633FF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A896EB71BDEC86C006633FF /* Constants.swift */; settings = {ASSET_TAGS = (); }; };
+		5A8D237D1BE55DC700E6B053 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8D237C1BE55DC700E6B053 /* Player.swift */; settings = {ASSET_TAGS = (); }; };
+		5A8D237F1BE55DD400E6B053 /* Alien.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8D237E1BE55DD400E6B053 /* Alien.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		5A896EA91BDEC5D2006633FF /* SpaceInvadersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceInvadersUITests.swift; sourceTree = "<group>"; };
 		5A896EAB1BDEC5D2006633FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A896EB71BDEC86C006633FF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5A8D237C1BE55DC700E6B053 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		5A8D237E1BE55DD400E6B053 /* Alien.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alien.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,8 @@
 				5A896E851BDEC5D2006633FF /* AppDelegate.swift */,
 				5A896E871BDEC5D2006633FF /* GameScene.sks */,
 				5A896E891BDEC5D2006633FF /* GameScene.swift */,
+				5A8D237C1BE55DC700E6B053 /* Player.swift */,
+				5A8D237E1BE55DD400E6B053 /* Alien.swift */,
 				5A896EB71BDEC86C006633FF /* Constants.swift */,
 				5A896E8B1BDEC5D2006633FF /* GameViewController.swift */,
 				5A896E8D1BDEC5D2006633FF /* Main.storyboard */,
@@ -271,6 +277,8 @@
 				5A896E8A1BDEC5D2006633FF /* GameScene.swift in Sources */,
 				5A896E8C1BDEC5D2006633FF /* GameViewController.swift in Sources */,
 				5A896E861BDEC5D2006633FF /* AppDelegate.swift in Sources */,
+				5A8D237F1BE55DD400E6B053 /* Alien.swift in Sources */,
+				5A8D237D1BE55DC700E6B053 /* Player.swift in Sources */,
 				5A896EB81BDEC86C006633FF /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
