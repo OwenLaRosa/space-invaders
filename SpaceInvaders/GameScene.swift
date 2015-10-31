@@ -28,6 +28,12 @@ class Player: SKSpriteNode {
         physicsBody?.dynamic = true
         physicsBody?.affectedByGravity = false
         physicsBody?.mass = 0.01
+        physicsBody?.allowsRotation = false
+        physicsBody?.usesPreciseCollisionDetection = true
+        
+        physicsBody?.categoryBitMask = kShipCategory
+        physicsBody?.contactTestBitMask = 0x0
+        physicsBody?.collisionBitMask = 0x0
     }
     
     func shoot() {
@@ -35,6 +41,16 @@ class Player: SKSpriteNode {
         bullet.position = position
         let target = CGPoint(x: bullet.position.x, y: bullet.position.y + 1000) // offscreen
         let fireBullet = SKAction.sequence([SKAction.moveTo(target, duration: 2.5), SKAction.removeFromParent()])
+        
+        bullet.physicsBody = SKPhysicsBody(rectangleOfSize: kBulletSize)
+        bullet.physicsBody?.dynamic = true
+        bullet.physicsBody?.affectedByGravity = false
+        physicsBody?.allowsRotation = false
+        //bullet.physicsBody?.usesPreciseCollisionDetection = true
+        bullet.physicsBody?.categoryBitMask = kBulletCategory
+        bullet.physicsBody?.contactTestBitMask = kAlienCategory
+        bullet.physicsBody?.collisionBitMask = 0x0
+        
         parent?.addChild(bullet)
         bullet.runAction(fireBullet)
     }
@@ -42,6 +58,14 @@ class Player: SKSpriteNode {
 }
 
 class Alien: SKSpriteNode {
+    
+    var health = 100 {
+        didSet {
+            if self.health <= 0 {
+                removeFromParent()
+            }
+        }
+    }
     
     init() {
         super.init(texture: nil, color: kAlienColor, size: kAlienSize)
@@ -60,6 +84,12 @@ class Alien: SKSpriteNode {
         physicsBody = SKPhysicsBody(rectangleOfSize: frame.size)
         physicsBody?.dynamic = true
         physicsBody?.affectedByGravity = false
+        physicsBody?.allowsRotation = false
+        
+        physicsBody?.usesPreciseCollisionDetection = true
+        physicsBody?.categoryBitMask = kAlienCategory
+        physicsBody?.contactTestBitMask = 0x0
+        physicsBody?.collisionBitMask = 0x0
     }
     
     func shoot() {
@@ -67,13 +97,23 @@ class Alien: SKSpriteNode {
         bullet.position = position
         let target = CGPoint(x: bullet.position.x, y: bullet.position.y - 1000) // offscreen
         let fireBullet = SKAction.sequence([SKAction.moveTo(target, duration: 5.0), SKAction.removeFromParent()])
+        
+        bullet.physicsBody = SKPhysicsBody(rectangleOfSize: bullet.size)
+        bullet.physicsBody?.dynamic = true
+        bullet.physicsBody?.affectedByGravity = false
+        physicsBody?.allowsRotation = false
+        //bullet.physicsBody?.usesPreciseCollisionDetection = true
+        bullet.physicsBody?.categoryBitMask = kBulletCategory
+        bullet.physicsBody?.contactTestBitMask = kShipCategory
+        bullet.physicsBody?.collisionBitMask = 0x0
+        
         parent?.addChild(bullet)
         bullet.runAction(fireBullet)
     }
     
 }
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // MARK: - Game Arena
     
@@ -98,6 +138,9 @@ class GameScene: SKScene {
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         configureScreen()
+        
+        // add physics body to the game arena
+        physicsWorld.contactDelegate = self
         
         // Create game entities
         addPlayerShip()
@@ -250,6 +293,26 @@ class GameScene: SKScene {
             }
         }
         return nearestAlien
+    }
+    
+    // MARK: - Contact Delegate
+    
+    func didBeginContact(contact: SKPhysicsContact) {
+        let node1 = contact.bodyA.node as! SKSpriteNode
+        let node2 = contact.bodyB.node as! SKSpriteNode
+        
+        print(contact.bodyA.categoryBitMask)
+        print(contact.bodyB.categoryBitMask)
+        
+        if contact.bodyA.categoryBitMask == kAlienCategory && contact.bodyB.categoryBitMask == kBulletCategory {
+            let alien = node1 as! Alien
+            alien.health -= 100
+            node2.removeFromParent()
+        } else if contact.bodyA.categoryBitMask == kBulletCategory && contact.bodyB.categoryBitMask == kAlienCategory {
+            let alien = node2 as! Alien
+            alien.health -= 100
+            node1.removeFromParent()
+        }
     }
     
 }
