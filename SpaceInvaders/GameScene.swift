@@ -278,7 +278,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         enumerateChildNodesWithName(kAlienName) {alien, stop in
             if nearestAlien != nil {
                 // check if the alien is closer vertically
-                if alien.position.y < nearestAlien!.position.y {
+                if alien.position.y < nearestAlien!.position.y && alien.position.x == nearestAlien.position.x {
                     nearestAlien = alien as! Alien
                 }
                 // check if the alien is closer horizontally
