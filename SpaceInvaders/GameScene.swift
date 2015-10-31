@@ -298,6 +298,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // MARK: - Contact Delegate
     
     func didBeginContact(contact: SKPhysicsContact) {
+        // check if there are less than two nodes in the collision
+        if contact.bodyA.node == nil || contact.bodyB.node == nil {
+            return
+        }
         let node1 = contact.bodyA.node as! SKSpriteNode
         let node2 = contact.bodyB.node as! SKSpriteNode
         
