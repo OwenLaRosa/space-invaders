@@ -51,9 +51,16 @@ let kBulletSize = CGSize(width: 2, height: 16)
 let kPlayerBulletColor = SKColor.greenColor()
 let kAlienBulletColor = SKColor.whiteColor()
 
+// MARK: - Bunkers
+
+let kBunkerName = "bunker"
+let kBunkerSize = CGSize(width: 4, height: 4)
+let kBunkerColor = SKColor.greenColor()
+
 // MARK: - Category Bit Masks
 
 let kArenaCategory: UInt32 = 0x1 << 0
 let kShipCategory: UInt32 = 0x1 << 1
 let kAlienCategory: UInt32 = 0x1 << 2
 let kBulletCategory: UInt32 = 0x1 << 3
+let kBunkerCategory: UInt32 = 0x1 << 4
