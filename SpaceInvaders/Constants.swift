@@ -13,6 +13,9 @@ import SpriteKit
 
 let kEarth = 32
 
+let kMoveLeftButtonName = "moveLeft"
+let kMoveRightButtonName = "moveRight"
+
 // MARK: - Player
 
 let kShipName = "ship"

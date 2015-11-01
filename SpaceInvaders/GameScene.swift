@@ -96,6 +96,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     /// Add buttons and labels to the scene
     func setupUI() {
         let leftButton = ButtonNode()
+        leftButton.name = kMoveLeftButtonName
         leftButton.text = "<"
         leftButton.position = CGPoint(x: leftButton.frame.size.width/2 + 8, y: leftButton.frame.size.height/2 + 8)
         leftButton.callback = {
@@ -105,6 +106,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(leftButton)
         
         let rightButton = ButtonNode()
+        rightButton.name = kMoveRightButtonName
         rightButton.text = ">"
         rightButton.position = CGPoint(x: size.width - rightButton.frame.size.width/2 - 8, y: rightButton.frame.size.height/2 + 8)
         rightButton.callback = {
@@ -118,11 +120,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         pauseButton.fontSize = 20
         pauseButton.position = CGPoint(x: size.width - pauseButton.frame.size.width/2 - 4, y: size.height - pauseButton.frame.size.height/2 - 8)
         pauseButton.callback = {
-            if !self.paused {
-                self.paused = true
-            } else {
-                self.paused = false
-            }
+            self.pauseGame(!self.paused)
         }
         addChild(pauseButton)
     }
@@ -247,6 +245,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             alien.health -= 100
             node1.removeFromParent()
         }
+    }
+    
+    /// Toggles the paused state of the game and enables/disables relevant UI
+    func pauseGame(shouldPause: Bool) {
+        paused = shouldPause
+        userInteractionEnabled = !shouldPause
+        (childNodeWithName(kMoveLeftButtonName) as! ButtonNode).userInteractionEnabled = !shouldPause
+        (childNodeWithName(kMoveRightButtonName) as! ButtonNode).userInteractionEnabled = !shouldPause
     }
     
 }
