@@ -33,6 +33,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         configureScreen()
+        setupUI()
         
         // add physics body to the game arena
         physicsWorld.contactDelegate = self
@@ -90,6 +91,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         maxLocationX = abs(size.width - getAliensOrigin().x) + CGFloat(kAlienMovementX * 8) + 1.0
         print(minLocationX)
         print(maxLocationX)
+    }
+    
+    /// Add buttons and labels to the scene
+    func setupUI() {
+        let leftButton = ButtonNode()
+        leftButton.text = "<"
+        leftButton.position = CGPoint(x: leftButton.frame.size.width/2 + 8, y: leftButton.frame.size.height/2 + 8)
+        leftButton.callback = {
+            let moveLeft = SKAction.moveTo(CGPoint(x: self.ship.position.x - 20, y: self.ship.position.y), duration: 0.05)
+            self.ship.runAction(moveLeft)
+        }
+        addChild(leftButton)
+        
+        let rightButton = ButtonNode()
+        rightButton.text = ">"
+        rightButton.position = CGPoint(x: size.width - rightButton.frame.size.width/2 - 8, y: rightButton.frame.size.height/2 + 8)
+        rightButton.callback = {
+            let moveRight = SKAction.moveTo(CGPoint(x: self.ship.position.x + 20, y: self.ship.position.y), duration: 0.05)
+            self.ship.runAction(moveRight)
+        }
+        addChild(rightButton)
     }
     
     /// Add the player's ship to the game

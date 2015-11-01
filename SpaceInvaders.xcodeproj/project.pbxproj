@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A6BED2D1BE6A17B0020B9F1 /* ButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6BED2C1BE6A17B0020B9F1 /* ButtonNode.swift */; settings = {ASSET_TAGS = (); }; };
 		5A896E861BDEC5D2006633FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A896E851BDEC5D2006633FF /* AppDelegate.swift */; };
 		5A896E881BDEC5D2006633FF /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5A896E871BDEC5D2006633FF /* GameScene.sks */; };
 		5A896E8A1BDEC5D2006633FF /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A896E891BDEC5D2006633FF /* GameScene.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5A6BED2C1BE6A17B0020B9F1 /* ButtonNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ButtonNode.swift; path = ../ButtonNode.swift; sourceTree = "<group>"; };
 		5A896E821BDEC5D2006633FF /* SpaceInvaders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceInvaders.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A896E851BDEC5D2006633FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A896E871BDEC5D2006633FF /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 		5A896E841BDEC5D2006633FF /* SpaceInvaders */ = {
 			isa = PBXGroup;
 			children = (
+				5A6BED2C1BE6A17B0020B9F1 /* ButtonNode.swift */,
 				5A896E851BDEC5D2006633FF /* AppDelegate.swift */,
 				5A896E871BDEC5D2006633FF /* GameScene.sks */,
 				5A896E891BDEC5D2006633FF /* GameScene.swift */,
@@ -280,6 +283,7 @@
 				5A8D237F1BE55DD400E6B053 /* Alien.swift in Sources */,
 				5A8D237D1BE55DC700E6B053 /* Player.swift in Sources */,
 				5A896EB81BDEC86C006633FF /* Constants.swift in Sources */,
+				5A6BED2D1BE6A17B0020B9F1 /* ButtonNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
