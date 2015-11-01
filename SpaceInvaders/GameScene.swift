@@ -54,7 +54,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
-        
+        print(currentTime)
         // wait for the game to start to perform updates
         if isFirstUpdate {
             aliensLastMoved += currentTime
@@ -112,6 +112,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.ship.runAction(moveRight)
         }
         addChild(rightButton)
+        
+        let pauseButton = ButtonNode()
+        pauseButton.text = "▌▌"
+        pauseButton.fontSize = 20
+        pauseButton.position = CGPoint(x: size.width - pauseButton.frame.size.width/2 - 4, y: size.height - pauseButton.frame.size.height/2 - 8)
+        pauseButton.callback = {
+            if !self.paused {
+                self.paused = true
+            } else {
+                self.paused = false
+            }
+        }
+        addChild(pauseButton)
     }
     
     /// Add the player's ship to the game
