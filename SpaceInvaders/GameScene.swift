@@ -39,6 +39,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         physicsWorld.contactDelegate = self
         
         // Create game entities
+        addBunkers()
         addPlayerShip()
         addAliens()
     }
@@ -123,6 +124,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.pauseGame(!self.paused)
         }
         addChild(pauseButton)
+    }
+    
+    /// Arrange defense bunkers on the view
+    func addBunkers() {
+        // determine locations of the bunkers
+        let leftMost = getAliensOrigin().x
+        let rightMost = size.width - leftMost
+        let distanceBetweenBunkers = (rightMost - leftMost)/3.0
+        let bunkerLocations = [
+            CGPoint(x: leftMost, y: 100),
+            CGPoint(x: leftMost + distanceBetweenBunkers, y: 100),
+            CGPoint(x: rightMost - distanceBetweenBunkers, y: 100),
+            CGPoint(x: rightMost, y: 100)
+        ]
+        for i in bunkerLocations {
+            let bunker = DefenseBunker()
+            bunker.position = i
+            addChild(bunker)
+        }
     }
     
     /// Add the player's ship to the game
