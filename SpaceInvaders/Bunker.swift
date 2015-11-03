@@ -45,7 +45,6 @@ class DefenseBunker: SKSpriteNode {
     init() {
         super.init(texture: nil, color: SKColor.clearColor(), size: CGSize(width: Int(kBunkerSize.width) * nodesWide, height: Int(kBunkerSize.height) * nodesHigh))
         // will hold 5x5 grid of BunkerNode objects
-        
         setupBunker()
     }
 
@@ -55,8 +54,8 @@ class DefenseBunker: SKSpriteNode {
     
     /// Add a bunker node at the specified point, x and y begin at zero
     func addNode(x x: Int, y: Int) {
-        let xCoordinate = x * Int(kBunkerSize.width) - Int(baseX)
-        let yCoordinate = y * Int(kBunkerSize.height) - Int(baseY)
+        let xCoordinate = x * Int(kBunkerSize.width) - Int(baseX) - Int(size.width/2)
+        let yCoordinate = y * Int(kBunkerSize.height) - Int(baseY) - Int(size.height/2)
         let bunkerNode = BunkerNode()
         bunkerNode.position = CGPoint(x: xCoordinate, y: yCoordinate)
         addChild(bunkerNode)

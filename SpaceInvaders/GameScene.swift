@@ -133,10 +133,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let rightMost = size.width - leftMost
         let distanceBetweenBunkers = (rightMost - leftMost)/3.0
         let bunkerLocations = [
-            CGPoint(x: leftMost, y: 100),
-            CGPoint(x: leftMost + distanceBetweenBunkers, y: 100),
-            CGPoint(x: rightMost - distanceBetweenBunkers, y: 100),
-            CGPoint(x: rightMost, y: 100)
+            CGPoint(x: leftMost, y: 50),
+            CGPoint(x: leftMost + distanceBetweenBunkers, y: 50),
+            CGPoint(x: rightMost - distanceBetweenBunkers, y: 50),
+            CGPoint(x: rightMost, y: 50)
         ]
         for i in bunkerLocations {
             let bunker = DefenseBunker()
@@ -158,7 +158,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         var nextYOrigin = aliensOrigin.y
         for _ in 1...kAlienRows {
-            var nextXOrigin = aliensOrigin.x
+            var nextXOrigin = aliensOrigin.x + kAlienSize.width/2.0
             for _ in 1...kAlienColumns {
                 let alien = Alien()
                 alien.position = CGPoint(x: nextXOrigin, y: nextYOrigin)
@@ -177,7 +177,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         let distanceFromEarth = kEarth + totalHeight
         
-        let xOrigin = size.width/2.0 - CGFloat(totalWidth/2) + kAlienSize.width/2.0
+        let xOrigin = size.width/2.0 - CGFloat(totalWidth/2)
         let yOrigin = CGFloat(totalHeight)*2.3 // magic number that works well on 5, 5s screen
         
         return CGPoint(x: xOrigin, y: yOrigin)
