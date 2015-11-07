@@ -19,7 +19,7 @@ let kMoveRightButtonName = "moveRight"
 // MARK: - Player
 
 let kShipName = "ship"
-let kShipSize = CGSize(width: 48, height: 24)
+let kShipSize = CGSize(width: 36, height: 18)
 let kShipColor = SKColor.greenColor()
 
 // MARK: - Aliens
@@ -54,8 +54,9 @@ let kAlienBulletColor = SKColor.whiteColor()
 // MARK: - Bunkers
 
 let kBunkerName = "bunker"
-let kBunkerSize = CGSize(width: 4, height: 4)
+let kBunkerSize = CGSize(width: 7, height: 7)
 let kBunkerColor = SKColor.greenColor()
+let kBunkerLocationY = CGFloat(Float(kEarth) * 1.5)
 
 // MARK: - Category Bit Masks
 

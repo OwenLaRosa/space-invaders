@@ -133,10 +133,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let rightMost = size.width - leftMost
         let distanceBetweenBunkers = (rightMost - leftMost)/3.0
         let bunkerLocations = [
-            CGPoint(x: leftMost, y: 50),
-            CGPoint(x: leftMost + distanceBetweenBunkers, y: 50),
-            CGPoint(x: rightMost - distanceBetweenBunkers, y: 50),
-            CGPoint(x: rightMost, y: 50)
+            CGPoint(x: leftMost, y: kBunkerLocationY),
+            CGPoint(x: leftMost + distanceBetweenBunkers, y: kBunkerLocationY),
+            CGPoint(x: rightMost - distanceBetweenBunkers, y: kBunkerLocationY),
+            CGPoint(x: rightMost, y: kBunkerLocationY)
         ]
         for i in bunkerLocations {
             let bunker = DefenseBunker()
