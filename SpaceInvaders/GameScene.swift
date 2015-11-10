@@ -264,6 +264,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let alien = node2 as! Alien
             alien.health -= 100
             node1.removeFromParent()
+        } else if contact.bodyA.categoryBitMask == kBulletCategory && contact.bodyB.categoryBitMask == kBunkerCategory {
+            node1.removeFromParent()
+            node2.removeFromParent()
+        } else if contact.bodyA.categoryBitMask == kBunkerCategory && contact.bodyB.categoryBitMask == kBulletCategory {
+            node1.removeFromParent()
+            node2.removeFromParent()
         }
     }
     

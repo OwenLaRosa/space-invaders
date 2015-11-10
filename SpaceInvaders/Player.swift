@@ -48,7 +48,7 @@ class Player: SKSpriteNode {
         physicsBody?.allowsRotation = false
         //bullet.physicsBody?.usesPreciseCollisionDetection = true
         bullet.physicsBody?.categoryBitMask = kBulletCategory
-        bullet.physicsBody?.contactTestBitMask = kAlienCategory
+        bullet.physicsBody?.contactTestBitMask = kAlienCategory | kBunkerCategory
         bullet.physicsBody?.collisionBitMask = 0x0
         
         parent?.addChild(bullet)

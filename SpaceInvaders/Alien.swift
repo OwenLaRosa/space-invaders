@@ -55,7 +55,7 @@ class Alien: SKSpriteNode {
         physicsBody?.allowsRotation = false
         //bullet.physicsBody?.usesPreciseCollisionDetection = true
         bullet.physicsBody?.categoryBitMask = kBulletCategory
-        bullet.physicsBody?.contactTestBitMask = kShipCategory
+        bullet.physicsBody?.contactTestBitMask = kShipCategory | kBunkerCategory
         bullet.physicsBody?.collisionBitMask = 0x0
         
         parent?.addChild(bullet)
