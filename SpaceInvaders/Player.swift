@@ -37,16 +37,11 @@ class Player: SKSpriteNode {
     }
     
     func shoot() {
-        let bullet = SKSpriteNode(color: kPlayerBulletColor, size: kBulletSize)
+        let bullet = Bullet(name: kPlayerBulletName)
         bullet.position = position
         let target = CGPoint(x: bullet.position.x, y: bullet.position.y + 1000) // offscreen
         let fireBullet = SKAction.sequence([SKAction.moveTo(target, duration: 2.5), SKAction.removeFromParent()])
         
-        bullet.physicsBody = SKPhysicsBody(rectangleOfSize: kBulletSize)
-        bullet.physicsBody?.dynamic = true
-        bullet.physicsBody?.affectedByGravity = false
-        physicsBody?.allowsRotation = false
-        //bullet.physicsBody?.usesPreciseCollisionDetection = true
         bullet.physicsBody?.categoryBitMask = kBulletCategory
         bullet.physicsBody?.contactTestBitMask = kAlienCategory | kBunkerCategory
         bullet.physicsBody?.collisionBitMask = 0x0

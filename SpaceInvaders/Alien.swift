@@ -44,16 +44,11 @@ class Alien: SKSpriteNode {
     }
     
     func shoot() {
-        let bullet = SKSpriteNode(color: kAlienBulletColor, size: kBulletSize)
+        let bullet = Bullet(name: kAlienBulletName)
         bullet.position = position
         let target = CGPoint(x: bullet.position.x, y: bullet.position.y - 1000) // offscreen
         let fireBullet = SKAction.sequence([SKAction.moveTo(target, duration: 5.0), SKAction.removeFromParent()])
         
-        bullet.physicsBody = SKPhysicsBody(rectangleOfSize: bullet.size)
-        bullet.physicsBody?.dynamic = true
-        bullet.physicsBody?.affectedByGravity = false
-        physicsBody?.allowsRotation = false
-        //bullet.physicsBody?.usesPreciseCollisionDetection = true
         bullet.physicsBody?.categoryBitMask = kBulletCategory
         bullet.physicsBody?.contactTestBitMask = kShipCategory | kBunkerCategory
         bullet.physicsBody?.collisionBitMask = 0x0
