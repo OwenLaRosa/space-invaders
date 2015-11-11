@@ -28,7 +28,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // MARK: - Alien properties
     var alienMoveSpeed = 1.0
     var alienMoveDirection: MoveDirection = .Right
-    var alienShootSpeed = 1.5
+    var alienShootSpeed = 1.2
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
@@ -65,15 +65,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // handle alien bullets
         if (currentTime - alienShootSpeed) >= aliensLastShot {
-            if let nearestAlien = getNearestAlien() {
-                aliensLastShot = currentTime
-                let bulletSpeed = arc4random_uniform(2)
-                if bulletSpeed % 2 == 1 {
-                    nearestAlien.shoot(kAlienFastBulletSpeed)
-                } else if bulletSpeed % 2 == 0 {
-                    nearestAlien.shoot(kAlienSlowBulletSpeed)
+            let targetedOrRandom = arc4random()
+            // determine if the alien should be random or close to the player
+            if targetedOrRandom % 2 == 1 {
+                if let nearestAlien = getNearestAlien() {
+                    shootForAlien(nearestAlien)
+                } else if let randomAlien = getRandomAlien() {
+                    // if no alien is nearby, shoot with a random one
+                    shootForAlien(randomAlien)
+                }
+            } else {
+                if let randomAlien = getRandomAlien() {
+                    shootForAlien(randomAlien)
                 }
             }
+            aliensLastShot = currentTime
         }
         
         // handle alien movement
@@ -246,6 +252,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         }
         return nearestAlien
+    }
+    
+    /// Gets a random alien currently in the game
+    func getRandomAlien() -> Alien? {
+        var aliens = [Alien]()
+        enumerateChildNodesWithName(kAlienName) {alien, stop in
+            aliens.append(alien as! Alien)
+        }
+        let randomIndex = arc4random() % UInt32(aliens.count)
+        return aliens[Int(randomIndex)]
+    }
+    
+    func shootForAlien(alien: Alien) {
+        let bulletSpeed = arc4random_uniform(2)
+        if bulletSpeed % 2 == 1 {
+            alien.shoot(kAlienFastBulletSpeed)
+        } else if bulletSpeed % 2 == 0 {
+            alien.shoot(kAlienSlowBulletSpeed)
+        }
     }
     
     // MARK: - Contact Delegate
