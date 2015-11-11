@@ -260,6 +260,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         enumerateChildNodesWithName(kAlienName) {alien, stop in
             aliens.append(alien as! Alien)
         }
+        if aliens.isEmpty {
+            return nil
+        }
         let randomIndex = arc4random() % UInt32(aliens.count)
         return aliens[Int(randomIndex)]
     }
