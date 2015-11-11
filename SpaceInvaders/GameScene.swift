@@ -67,7 +67,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if (currentTime - alienShootSpeed) >= aliensLastShot {
             if let nearestAlien = getNearestAlien() {
                 aliensLastShot = currentTime
-                nearestAlien.shoot()
+                let bulletSpeed = arc4random_uniform(2)
+                if bulletSpeed % 2 == 1 {
+                    nearestAlien.shoot(kAlienFastBulletSpeed)
+                } else if bulletSpeed % 2 == 0 {
+                    nearestAlien.shoot(kAlienSlowBulletSpeed)
+                }
             }
         }
         

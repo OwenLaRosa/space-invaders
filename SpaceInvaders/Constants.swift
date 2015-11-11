@@ -51,6 +51,9 @@ let kBulletSize = CGSize(width: 2, height: 16)
 let kPlayerBulletColor = SKColor.greenColor()
 let kAlienBulletColor = SKColor.whiteColor()
 
+let kAlienFastBulletSpeed = 5.0
+let kAlienSlowBulletSpeed = 7.0
+
 // MARK: - Bunkers
 
 let kBunkerName = "bunker"
