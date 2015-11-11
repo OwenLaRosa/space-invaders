@@ -30,7 +30,6 @@ class Alien: SKSpriteNode {
     }
     
     func addPhysics() {
-        print("addPhysics")
         // configure the alien's physics body
         physicsBody = SKPhysicsBody(rectangleOfSize: frame.size)
         physicsBody?.dynamic = true

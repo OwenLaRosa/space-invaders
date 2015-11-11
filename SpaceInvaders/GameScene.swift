@@ -55,7 +55,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
-        print(currentTime)
+        
         // wait for the game to start to perform updates
         if isFirstUpdate {
             aliensLastMoved += currentTime
@@ -101,8 +101,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // set up consistent game arena for all device screens
         minLocationX = getAliensOrigin().x - CGFloat(kAlienMovementX * 8) - 1.0 // number of movements on 5, 5s
         maxLocationX = abs(size.width - getAliensOrigin().x) + CGFloat(kAlienMovementX * 8) + 1.0
-        print(minLocationX)
-        print(maxLocationX)
     }
     
     /// Add buttons and labels to the scene
@@ -285,9 +283,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         let node1 = contact.bodyA.node as! SKSpriteNode
         let node2 = contact.bodyB.node as! SKSpriteNode
-        
-        print(contact.bodyA.categoryBitMask)
-        print(contact.bodyB.categoryBitMask)
         
         if contact.bodyA.categoryBitMask == kAlienCategory && contact.bodyB.categoryBitMask == kBulletCategory {
             let alien = node1 as! Alien

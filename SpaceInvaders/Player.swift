@@ -22,7 +22,6 @@ class Player: SKSpriteNode {
     }
     
     func addPhysics() {
-        print("addPhysics")
         // configure the player's physics body
         physicsBody = SKPhysicsBody(rectangleOfSize: frame.size)
         physicsBody?.dynamic = true
