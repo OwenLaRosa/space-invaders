@@ -20,6 +20,7 @@
 		5A896EB81BDEC86C006633FF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A896EB71BDEC86C006633FF /* Constants.swift */; };
 		5A8D237D1BE55DC700E6B053 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8D237C1BE55DC700E6B053 /* Player.swift */; };
 		5A8D237F1BE55DD400E6B053 /* Alien.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8D237E1BE55DD400E6B053 /* Alien.swift */; };
+		5A8FEC501BF3D9AF00248335 /* Bullet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8FEC4F1BF3D9AF00248335 /* Bullet.swift */; };
 		5ABE3ECD1BF2A26800BBCE5D /* ButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABE3ECC1BF2A26800BBCE5D /* ButtonNode.swift */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,7 @@
 		5A896EB71BDEC86C006633FF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5A8D237C1BE55DC700E6B053 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		5A8D237E1BE55DD400E6B053 /* Alien.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alien.swift; sourceTree = "<group>"; };
+		5A8FEC4F1BF3D9AF00248335 /* Bullet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bullet.swift; sourceTree = "<group>"; };
 		5ABE3ECC1BF2A26800BBCE5D /* ButtonNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,6 +119,7 @@
 				5A896E891BDEC5D2006633FF /* GameScene.swift */,
 				5A6BED301BE6C4A50020B9F1 /* Bunker.swift */,
 				5A8D237C1BE55DC700E6B053 /* Player.swift */,
+				5A8FEC4F1BF3D9AF00248335 /* Bullet.swift */,
 				5A8D237E1BE55DD400E6B053 /* Alien.swift */,
 				5A896EB71BDEC86C006633FF /* Constants.swift */,
 				5A896E8B1BDEC5D2006633FF /* GameViewController.swift */,
@@ -288,6 +291,7 @@
 				5A896EB81BDEC86C006633FF /* Constants.swift in Sources */,
 				5A6BED311BE6C4A50020B9F1 /* Bunker.swift in Sources */,
 				5ABE3ECD1BF2A26800BBCE5D /* ButtonNode.swift in Sources */,
+				5A8FEC501BF3D9AF00248335 /* Bullet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
