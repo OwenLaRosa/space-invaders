@@ -296,20 +296,29 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let node2 = contact.bodyB.node as! SKSpriteNode
         
         if contact.bodyA.categoryBitMask == kAlienCategory && contact.bodyB.categoryBitMask == kBulletCategory {
-            let alien = node1 as! Alien
-            alien.health -= 100
-            node2.removeFromParent()
+            bulletHitAlien(bullet: node2 as! Bullet, alien: node1 as! Alien)
         } else if contact.bodyA.categoryBitMask == kBulletCategory && contact.bodyB.categoryBitMask == kAlienCategory {
-            let alien = node2 as! Alien
-            alien.health -= 100
-            node1.removeFromParent()
+            bulletHitAlien(bullet: node1 as! Bullet, alien: node2 as! Alien)
         } else if contact.bodyA.categoryBitMask == kBulletCategory && contact.bodyB.categoryBitMask == kBunkerCategory {
-            node1.removeFromParent()
-            node2.removeFromParent()
+            bulletHitBunker(bullet: node1 as! Bullet, bunker: node2 as! BunkerNode)
         } else if contact.bodyA.categoryBitMask == kBunkerCategory && contact.bodyB.categoryBitMask == kBulletCategory {
-            node1.removeFromParent()
-            node2.removeFromParent()
+            bulletHitBunker(bullet: node2 as! Bullet, bunker: node1 as! BunkerNode)
         }
+    }
+    
+    /// Handle contact between a bullet and an alien
+    func bulletHitAlien(bullet bullet: Bullet, alien: Alien) {
+        alien.health -= bullet.damage
+        if alien.health <= 0 {
+            alien.removeFromParent()
+        }
+        bullet.removeFromParent()
+    }
+    
+    /// Handle contact between a bullet and a bunker
+    func bulletHitBunker(bullet bullet: Bullet, bunker: BunkerNode) {
+        bullet.removeFromParent()
+        bunker.removeFromParent()
     }
     
     /// Toggles the paused state of the game and enables/disables relevant UI

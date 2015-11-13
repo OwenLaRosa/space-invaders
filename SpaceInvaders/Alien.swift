@@ -10,13 +10,7 @@ import SpriteKit
 
 class Alien: SKSpriteNode {
     
-    var health = 100 {
-        didSet {
-            if self.health <= 0 {
-                removeFromParent()
-            }
-        }
-    }
+    var health = 100
     
     init() {
         super.init(texture: nil, color: kAlienColor, size: kAlienSize)

@@ -10,12 +10,16 @@ import SpriteKit
 
 class Bullet: SKSpriteNode {
     
+    var damage = 0
+    
     init(name: String) {
         var bulletColor = SKColor()
         if name == kPlayerBulletName {
             bulletColor = kPlayerBulletColor
+            damage = kPlayerBulletDamage
         } else if name == kAlienBulletName {
             bulletColor = kAlienBulletColor
+            damage = kAlienBulletDamage
         }
         super.init(texture: nil, color: bulletColor, size: kBulletSize)
         self.name = name

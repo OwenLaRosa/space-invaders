@@ -54,6 +54,9 @@ let kAlienBulletColor = SKColor.whiteColor()
 let kAlienFastBulletSpeed = 5.0
 let kAlienSlowBulletSpeed = 7.0
 
+let kPlayerBulletDamage = 100
+let kAlienBulletDamage = 100
+
 // MARK: - Bunkers
 
 let kBunkerName = "bunker"
