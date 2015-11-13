@@ -20,6 +20,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var aliensLastMoved: CFTimeInterval = 1.0
     var playerLastShot = NSDate()
     var aliensLastShot: CFTimeInterval = 0.5
+    var gameBegan = NSDate()
     
     // MARK: - Player Properties
     var ship: Player!
@@ -42,13 +43,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addBunkers()
         addPlayerShip()
         addAliens()
+        
+        // start the game timer
+        gameBegan = NSDate()
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         /* Called when a touch begins */
         
-        if abs(playerLastShot.timeIntervalSinceNow) >= playerShootSpeed {
-            playerLastShot = NSDate()
+        // don't let the player shoot immediately
+        if abs(gameBegan.timeIntervalSinceNow) < 1.0 {
+            return
+        }
+        
+        // shoot if none of the player's bullets are onscreen
+        if childNodeWithName(kPlayerBulletName) == nil {
             ship.shoot()
         }
     }

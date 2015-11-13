@@ -38,8 +38,8 @@ class Player: SKSpriteNode {
     func shoot() {
         let bullet = Bullet(name: kPlayerBulletName)
         bullet.position = position
-        let target = CGPoint(x: bullet.position.x, y: bullet.position.y + 1000) // offscreen
-        let fireBullet = SKAction.sequence([SKAction.moveTo(target, duration: 2.5), SKAction.removeFromParent()])
+        let target = CGPoint(x: bullet.position.x, y: bullet.position.y + 500) // offscreen
+        let fireBullet = SKAction.sequence([SKAction.moveTo(target, duration: 1.5), SKAction.removeFromParent()])
         
         bullet.physicsBody?.categoryBitMask = kBulletCategory
         bullet.physicsBody?.contactTestBitMask = kAlienCategory | kBunkerCategory
