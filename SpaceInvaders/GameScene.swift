@@ -303,6 +303,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             bulletHitBunker(bullet: node1 as! Bullet, bunker: node2 as! BunkerNode)
         } else if contact.bodyA.categoryBitMask == kBunkerCategory && contact.bodyB.categoryBitMask == kBulletCategory {
             bulletHitBunker(bullet: node2 as! Bullet, bunker: node1 as! BunkerNode)
+        } else if contact.bodyA.categoryBitMask == kShipCategory && contact.bodyB.categoryBitMask == kBulletCategory {
+            bulletHitPlayer(bullet: node2 as! Bullet, player: node1 as! Player)
+        } else if contact.bodyA.categoryBitMask == kBulletCategory && contact.bodyB.categoryBitMask == kShipCategory {
+            bulletHitPlayer(bullet: node1 as! Bullet, player: node2 as! Player)
         }
     }
     
@@ -313,6 +317,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             alien.removeFromParent()
         }
         bullet.removeFromParent()
+    }
+    
+    /// Handle contact between a bullet and the player
+    func bulletHitPlayer(bullet bullet: Bullet, player: Player) {
+        player.health -= bullet.damage
+        if player.health <= 0 {
+            // normally, the player would be killed
+            // for debugging purposes, this will be added later
+        }
     }
     
     /// Handle contact between a bullet and a bunker

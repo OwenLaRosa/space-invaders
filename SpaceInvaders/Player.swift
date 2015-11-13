@@ -10,6 +10,8 @@ import SpriteKit
 
 class Player: SKSpriteNode {
     
+    var health = 100
+    
     init() {
         super.init(texture: nil, color: kShipColor, size: kShipSize)
         
