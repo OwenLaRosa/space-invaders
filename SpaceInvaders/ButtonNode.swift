@@ -31,3 +31,27 @@ class ButtonNode: SKLabelNode {
     }
     
 }
+
+class LongPressButtonNode: ButtonNode {
+    
+    var active = false
+    var callbackTimer = NSTimer()
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        active = true
+        callbackTimer = NSTimer(fireDate: NSDate(), interval: 0.01, target: self, selector: "performCallback", userInfo: nil, repeats: true)
+        NSRunLoop.currentRunLoop().addTimer(callbackTimer, forMode: NSRunLoopCommonModes)
+    }
+    
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        active = false
+        callbackTimer.invalidate()
+    }
+    
+    func performCallback() {
+        if active {
+            callback()
+        }
+    }
+    
+}

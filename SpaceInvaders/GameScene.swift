@@ -105,22 +105,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     /// Add buttons and labels to the scene
     func setupUI() {
-        let leftButton = ButtonNode()
+        let leftButton = LongPressButtonNode()
         leftButton.name = kMoveLeftButtonName
         leftButton.text = "<"
         leftButton.position = CGPoint(x: leftButton.frame.size.width/2 + 8, y: leftButton.frame.size.height/2 + 8)
         leftButton.callback = {
-            let moveLeft = SKAction.moveTo(CGPoint(x: self.ship.position.x - 20, y: self.ship.position.y), duration: 0.05)
+            let moveLeft = SKAction.moveTo(CGPoint(x: self.ship.position.x - 5, y: self.ship.position.y), duration: 0.05)
             self.ship.runAction(moveLeft)
         }
         addChild(leftButton)
         
-        let rightButton = ButtonNode()
+        let rightButton = LongPressButtonNode()
         rightButton.name = kMoveRightButtonName
         rightButton.text = ">"
         rightButton.position = CGPoint(x: size.width - rightButton.frame.size.width/2 - 8, y: rightButton.frame.size.height/2 + 8)
         rightButton.callback = {
-            let moveRight = SKAction.moveTo(CGPoint(x: self.ship.position.x + 20, y: self.ship.position.y), duration: 0.05)
+            let moveRight = SKAction.moveTo(CGPoint(x: self.ship.position.x + 5, y: self.ship.position.y), duration: 0.05)
             self.ship.runAction(moveRight)
         }
         addChild(rightButton)
