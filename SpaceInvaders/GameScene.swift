@@ -21,6 +21,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var playerLastShot = NSDate()
     var aliensLastShot: CFTimeInterval = 0.5
     var gameBegan = NSDate()
+    var gameData: GameData!
     
     // MARK: - Player Properties
     var ship: Player!
@@ -33,6 +34,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
+        
+        // allow score keeping
+        gameData = GameData(level: 1)
         configureScreen()
         setupUI()
         
@@ -114,6 +118,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     /// Add buttons and labels to the scene
     func setupUI() {
+        let scoreBoard = ScoreBoard(size: CGSize(width: size.width, height: 30))
+        scoreBoard.gameData = gameData
+        scoreBoard.configureLabel(gameData.level, score: gameData.score, lives: gameData.lives)
+        scoreBoard.position = CGPoint(x: size.width/2, y: size.height - scoreBoard.frame.size.height/2)
+        addChild(scoreBoard)
+        
         let leftButton = LongPressButtonNode()
         leftButton.name = kMoveLeftButtonName
         leftButton.text = "<"

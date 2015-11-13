@@ -11,14 +11,18 @@ import SpriteKit
 class ScoreBoard: SKSpriteNode {
     
     var label = SKLabelNode()
+    var gameData: GameData!
+    let padding: CGFloat = 4.0
     
     init(size nodeSize: CGSize) {
         super.init(texture: nil, color: SKColor.lightGrayColor(), size: nodeSize)
         
         // configure the label
-        label.position = CGPoint(x: 0, y: 0)
-        label.color = SKColor.blueColor()
+        label.fontColor = SKColor.blueColor()
         label.fontName = "Courier"
+        label.fontSize = size.height
+        label.position = CGPoint(x: 0, y: -size.height/2 + padding)
+        addChild(label)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -26,7 +30,8 @@ class ScoreBoard: SKSpriteNode {
     }
     
     func configureLabel(level: Int?, score: Int?, lives: Int?) {
-        label.text = "Level: \(level ?? 0) Score: \(score ?? 0) Lives: \(lives ?? 0)"
+        label.text = "Level: \(level ?? gameData.level) Score: \(score ?? gameData.score) Lives: \(lives ?? gameData.lives)"
+        label.position.x = -(size.width/2 - label.frame.size.width/2) + padding
     }
     
 }
