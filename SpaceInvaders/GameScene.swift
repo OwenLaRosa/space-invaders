@@ -108,7 +108,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let leftButton = LongPressButtonNode()
         leftButton.name = kMoveLeftButtonName
         leftButton.text = "<"
-        leftButton.position = CGPoint(x: leftButton.frame.size.width/2 + 8, y: leftButton.frame.size.height/2 + 8)
+        leftButton.fontSize = 75
+        leftButton.position = CGPoint(x: leftButton.frame.size.width/2, y: leftButton.frame.size.height/2)
         leftButton.callback = {
             let moveLeft = SKAction.moveTo(CGPoint(x: self.ship.position.x - 5, y: self.ship.position.y), duration: 0.05)
             self.ship.runAction(moveLeft)
@@ -118,7 +119,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let rightButton = LongPressButtonNode()
         rightButton.name = kMoveRightButtonName
         rightButton.text = ">"
-        rightButton.position = CGPoint(x: size.width - rightButton.frame.size.width/2 - 8, y: rightButton.frame.size.height/2 + 8)
+        rightButton.fontSize = 75
+        rightButton.position = CGPoint(x: size.width - rightButton.frame.size.width/2, y: rightButton.frame.size.height/2)
         rightButton.callback = {
             let moveRight = SKAction.moveTo(CGPoint(x: self.ship.position.x + 5, y: self.ship.position.y), duration: 0.05)
             self.ship.runAction(moveRight)
