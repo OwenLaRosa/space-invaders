@@ -39,6 +39,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // allow score keeping
         gameData = GameData(level: 1)
+        gameData.lives = kPlayerStartingLives
         configureScreen()
         setupUI()
         
@@ -366,6 +367,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     /// Handle contact between a bullet and the player
     func bulletHitPlayer(bullet bullet: Bullet, player: Player) {
         player.health -= bullet.damage
+        gameData.lives--
+        scoreBoard.configureLabel()
         if player.health <= 0 {
             // normally, the player would be killed
             // for debugging purposes, this will be added later

@@ -21,6 +21,7 @@ let kMoveRightButtonName = "moveRight"
 let kShipName = "ship"
 let kShipSize = CGSize(width: 36, height: 18)
 let kShipColor = SKColor.greenColor()
+let kPlayerStartingLives = 3
 
 // MARK: - Aliens
 
