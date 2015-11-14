@@ -131,7 +131,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         leftButton.name = kMoveLeftButtonName
         leftButton.text = "<"
         leftButton.fontSize = 75
-        leftButton.position = CGPoint(x: leftButton.frame.size.width/2, y: leftButton.frame.size.height/2)
+        leftButton.position = CGPoint(x: leftButton.frame.size.width/2, y: 0)
         leftButton.callback = {
             let moveLeft = SKAction.moveTo(CGPoint(x: self.ship.position.x - 5, y: self.ship.position.y), duration: 0.05)
             self.ship.runAction(moveLeft)
@@ -142,7 +142,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         rightButton.name = kMoveRightButtonName
         rightButton.text = ">"
         rightButton.fontSize = 75
-        rightButton.position = CGPoint(x: size.width - rightButton.frame.size.width/2, y: rightButton.frame.size.height/2)
+        rightButton.position = CGPoint(x: size.width - rightButton.frame.size.width/2, y: 0)
         rightButton.callback = {
             let moveRight = SKAction.moveTo(CGPoint(x: self.ship.position.x + 5, y: self.ship.position.y), duration: 0.05)
             self.ship.runAction(moveRight)
