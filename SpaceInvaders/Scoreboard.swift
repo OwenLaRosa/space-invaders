@@ -29,8 +29,8 @@ class ScoreBoard: SKSpriteNode {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configureLabel(level: Int?, score: Int?, lives: Int?) {
-        label.text = "Level: \(level ?? gameData.level) Score: \(score ?? gameData.score) Lives: \(lives ?? gameData.lives)"
+    func configureLabel() {
+        label.text = "Level: \(gameData.level) Score: \(gameData.score) Lives: \(gameData.lives)"
         label.position.x = -(size.width/2 - label.frame.size.width/2) + padding
     }
     

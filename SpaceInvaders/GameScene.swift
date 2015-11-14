@@ -22,6 +22,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var aliensLastShot: CFTimeInterval = 0.5
     var gameBegan = NSDate()
     var gameData: GameData!
+    var scoreBoard: ScoreBoard!
     
     // MARK: - Player Properties
     var ship: Player!
@@ -118,9 +119,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     /// Add buttons and labels to the scene
     func setupUI() {
-        let scoreBoard = ScoreBoard(size: CGSize(width: size.width, height: 30))
+        scoreBoard = ScoreBoard(size: CGSize(width: size.width, height: 30))
         scoreBoard.gameData = gameData
-        scoreBoard.configureLabel(gameData.level, score: gameData.score, lives: gameData.lives)
+        scoreBoard.configureLabel()
         scoreBoard.position = CGPoint(x: size.width/2, y: size.height - scoreBoard.frame.size.height/2)
         addChild(scoreBoard)
         
@@ -187,11 +188,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let aliensOrigin = getAliensOrigin()
         
         var nextYOrigin = aliensOrigin.y
-        for _ in 1...kAlienRows {
+        for i in 1...kAlienRows {
             var nextXOrigin = aliensOrigin.x + kAlienSize.width/2.0
             for _ in 1...kAlienColumns {
                 let alien = Alien()
                 alien.position = CGPoint(x: nextXOrigin, y: nextYOrigin)
+                switch i {
+                case 1: // top row
+                    alien.color = SKColor.redColor()
+                    alien.points = 30
+                case 2, 3: // middle rows
+                    alien.color = SKColor.blueColor()
+                    alien.points = 20
+                case 4, 5: // bottom row
+                    alien.color = SKColor.yellowColor()
+                    alien.points = 10
+                default:
+                    return
+                }
                 addChild(alien)
                 nextXOrigin += kAlienSize.width + CGFloat(kAlienHorizontalSpacing)
             }
@@ -325,6 +339,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         alien.health -= bullet.damage
         if alien.health <= 0 {
             alien.removeFromParent()
+            // if the alien is dead, update the score
+            gameData.score += alien.points
+            scoreBoard.configureLabel()
         }
         bullet.removeFromParent()
     }
