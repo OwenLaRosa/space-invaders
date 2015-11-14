@@ -23,6 +23,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var gameBegan = NSDate()
     var gameData: GameData!
     var scoreBoard: ScoreBoard!
+    var aliensRemaining = kAlienRows * kAlienColumns
     
     // MARK: - Player Properties
     var ship: Player!
@@ -339,6 +340,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         alien.health -= bullet.damage
         if alien.health <= 0 {
             alien.removeFromParent()
+            aliensRemaining--
+            // aliens should get faster
+            if aliensRemaining <= 10 {
+                // large amount if near end of game
+                alienMoveSpeed -= 0.02
+            } else {
+                // small amount at first
+                alienMoveSpeed -= 0.015
+            }
+            if aliensRemaining == 1 {
+                // fastest move speed
+                alienMoveSpeed = 0.1
+            }
+            // aliens should shoot slower
+            // this ensures there aren't too may bullets for too few aliens
+            alienShootSpeed += 0.001
             // if the alien is dead, update the score
             gameData.score += alien.points
             scoreBoard.configureLabel()
