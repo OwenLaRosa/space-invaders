@@ -11,7 +11,9 @@ import SpriteKit
 
 // MARK: - Game
 
-let kEarth = 32
+let kEarth: CGFloat = 32.0
+let kEarthColor = SKColor.greenColor()
+let kEarthHeight: CGFloat = 2.0
 
 let kMoveLeftButtonName = "moveLeft"
 let kMoveRightButtonName = "moveRight"
@@ -72,3 +74,4 @@ let kShipCategory: UInt32 = 0x1 << 1
 let kAlienCategory: UInt32 = 0x1 << 2
 let kBulletCategory: UInt32 = 0x1 << 3
 let kBunkerCategory: UInt32 = 0x1 << 4
+let kEarthCategory: UInt32 = 0x1 << 5

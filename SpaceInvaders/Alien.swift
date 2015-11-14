@@ -33,7 +33,7 @@ class Alien: SKSpriteNode {
         
         physicsBody?.usesPreciseCollisionDetection = true
         physicsBody?.categoryBitMask = kAlienCategory
-        physicsBody?.contactTestBitMask = kBunkerCategory
+        physicsBody?.contactTestBitMask = kBunkerCategory | kEarthCategory
         physicsBody?.collisionBitMask = 0x0
     }
     

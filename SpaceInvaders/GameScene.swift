@@ -50,6 +50,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addBunkers()
         addPlayerShip()
         addAliens()
+        addEarthIndicator()
         
         // start the game timer
         gameBegan = NSDate()
@@ -215,13 +216,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    /// Add a line that signals Earth's location
+    func addEarthIndicator() {
+        let earth = Earth(width: size.width)
+        earth.position = CGPoint(x: size.width/2, y: kEarth)
+        addChild(earth)
+    }
+    
     /// Returns starting coordinate for placing aliens
     func getAliensOrigin() -> CGPoint {
         // width and height of entire alien grid, including spacing
         let totalWidth = kAlienColumns * Int(kAlienSize.width) + (kAlienColumns - 1) * kAlienHorizontalSpacing
         let totalHeight = kAlienRows * Int(kAlienSize.height) + (kAlienRows - 1) * kAlienVerticalSpacing
-        
-        let distanceFromEarth = kEarth + totalHeight
         
         let xOrigin = size.width/2.0 - CGFloat(totalWidth/2)
         let yOrigin = CGFloat(totalHeight)*2.3 // magic number that works well on 5, 5s screen
@@ -337,6 +343,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             node2.removeFromParent()
         } else if contact.bodyA.categoryBitMask == kBunkerCategory && contact.bodyB.categoryBitMask == kAlienCategory {
             node1.removeFromParent()
+        } else if contact.bodyA.categoryBitMask == kAlienCategory && contact.bodyB.categoryBitMask == kEarthCategory {
+            print("alien reached earth")
+        } else if contact.bodyA.categoryBitMask == kEarthCategory && contact.bodyB.categoryBitMask == kAlienCategory {
+            print("alien reached earth")
         }
     }
     
