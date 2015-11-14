@@ -333,6 +333,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             bulletHitPlayer(bullet: node2 as! Bullet, player: node1 as! Player)
         } else if contact.bodyA.categoryBitMask == kBulletCategory && contact.bodyB.categoryBitMask == kShipCategory {
             bulletHitPlayer(bullet: node1 as! Bullet, player: node2 as! Player)
+        } else if contact.bodyA.categoryBitMask == kAlienCategory && contact.bodyB.categoryBitMask == kBunkerCategory {
+            node2.removeFromParent()
+        } else if contact.bodyA.categoryBitMask == kBunkerCategory && contact.bodyB.categoryBitMask == kAlienCategory {
+            node1.removeFromParent()
         }
     }
     
