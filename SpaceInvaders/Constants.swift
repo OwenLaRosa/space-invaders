@@ -51,8 +51,8 @@ let kBulletSize = CGSize(width: 2, height: 16)
 let kPlayerBulletColor = SKColor.greenColor()
 let kAlienBulletColor = SKColor.whiteColor()
 
-let kAlienFastBulletSpeed = 5.0
-let kAlienSlowBulletSpeed = 7.0
+let kAlienFastBulletSpeed = 7.0
+let kAlienSlowBulletSpeed = 9.0
 
 let kPlayerBulletDamage = 100
 let kAlienBulletDamage = 100
