@@ -20,7 +20,7 @@ class ScoreBoard: SKSpriteNode {
         // configure the label
         label.fontColor = SKColor.blueColor()
         label.fontName = "Courier"
-        label.fontSize = size.height
+        label.fontSize = size.height - padding
         label.position = CGPoint(x: 0, y: -size.height/2 + padding)
         addChild(label)
     }
