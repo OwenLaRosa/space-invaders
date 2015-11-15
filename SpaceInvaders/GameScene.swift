@@ -32,7 +32,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // MARK: - Alien properties
     var alienMoveSpeed = 1.0
     var alienMoveDirection: MoveDirection = .Right
-    var alienShootSpeed = 1.2
+    var alienShootSpeed = 1.6
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
@@ -84,7 +84,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if (currentTime - alienShootSpeed) >= aliensLastShot {
             let targetedOrRandom = arc4random()
             // determine if the alien should be random or close to the player
-            if targetedOrRandom % 2 == 1 {
+            if targetedOrRandom % 3 == 1 {
                 if let nearestAlien = getNearestAlien() {
                     shootForAlien(nearestAlien)
                 } else if let randomAlien = getRandomAlien() {
@@ -131,7 +131,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let leftButton = LongPressButtonNode()
         leftButton.name = kMoveLeftButtonName
         leftButton.text = "<"
-        leftButton.fontSize = 75
+        leftButton.fontSize = 85
         leftButton.position = CGPoint(x: leftButton.frame.size.width/2, y: 0)
         leftButton.callback = {
             let moveLeft = SKAction.moveTo(CGPoint(x: self.ship.position.x - 5, y: self.ship.position.y), duration: 0.05)
@@ -142,7 +142,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let rightButton = LongPressButtonNode()
         rightButton.name = kMoveRightButtonName
         rightButton.text = ">"
-        rightButton.fontSize = 75
+        rightButton.fontSize = 85
         rightButton.position = CGPoint(x: size.width - rightButton.frame.size.width/2, y: 0)
         rightButton.callback = {
             let moveRight = SKAction.moveTo(CGPoint(x: self.ship.position.x + 5, y: self.ship.position.y), duration: 0.05)
