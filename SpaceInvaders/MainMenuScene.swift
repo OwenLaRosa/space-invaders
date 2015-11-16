@@ -55,6 +55,9 @@ class MainMenuScene: SKScene {
         playButton.fontColor = SKColor.whiteColor()
         playButton.verticalAlignmentMode = .Center
         playButton.position = CGPoint(x: 0, y: 0)
+        playButton.callback = {
+            self.view?.presentScene(GameScene(), transition: SKTransition.doorwayWithDuration(1.0))
+        }
         addButton(toContainer: container, node: playButton)
         
         let optionsButton = ButtonNode()

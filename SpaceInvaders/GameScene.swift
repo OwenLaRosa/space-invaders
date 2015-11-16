@@ -17,9 +17,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // MARK: - GameProperties
     var isFirstUpdate = true
-    var aliensLastMoved: CFTimeInterval = 1.0
+    var aliensLastMoved: CFTimeInterval = 2.0
     var playerLastShot = NSDate()
-    var aliensLastShot: CFTimeInterval = 0.5
+    var aliensLastShot: CFTimeInterval = 1.5
     var gameBegan = NSDate()
     var gameData: GameData!
     var scoreBoard: ScoreBoard!
