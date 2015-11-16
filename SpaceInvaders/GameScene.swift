@@ -60,7 +60,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         /* Called when a touch begins */
         
         // don't let the player shoot immediately
-        if abs(gameBegan.timeIntervalSinceNow) < 1.0 {
+        if abs(gameBegan.timeIntervalSinceNow) < 2.0 {
             return
         }
         
