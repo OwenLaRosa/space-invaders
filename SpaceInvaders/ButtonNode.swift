@@ -55,3 +55,23 @@ class LongPressButtonNode: ButtonNode {
     }
     
 }
+
+class ButtonBackground: SKSpriteNode {
+    
+    var callback: () -> Void
+    
+    init(button: ButtonNode) {
+        callback = button.callback
+        super.init(texture: nil, color: SKColor.blueColor(), size: button.frame.size)
+        userInteractionEnabled = true
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        callback()
+    }
+    
+}

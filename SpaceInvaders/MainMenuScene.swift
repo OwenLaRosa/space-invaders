@@ -70,8 +70,10 @@ class MainMenuScene: SKScene {
     }
     
     func addButton(toContainer container: SKNode, node: SKNode) {
-        let buttonBackground = SKSpriteNode(texture: nil, color: SKColor.blueColor(), size: CGSize(width: 200, height: node.frame.size.height))
+        let buttonBackground = ButtonBackground(button: node as! ButtonNode)
+        buttonBackground.size.width = 200
         buttonBackground.position = node.position
+        
         container.addChild(buttonBackground)
         container.addChild(node)
     }
