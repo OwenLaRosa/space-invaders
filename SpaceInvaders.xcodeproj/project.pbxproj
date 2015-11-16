@@ -25,6 +25,7 @@
 		5A8FEC501BF3D9AF00248335 /* Bullet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8FEC4F1BF3D9AF00248335 /* Bullet.swift */; };
 		5A9030E61BF7DB14005C0A9B /* Earth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9030E51BF7DB14005C0A9B /* Earth.swift */; };
 		5ABE3ECD1BF2A26800BBCE5D /* ButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABE3ECC1BF2A26800BBCE5D /* ButtonNode.swift */; };
+		5ABF56621BF9223C00856BEE /* MainMenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABF56611BF9223C00856BEE /* MainMenuScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		5A8FEC4F1BF3D9AF00248335 /* Bullet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bullet.swift; sourceTree = "<group>"; };
 		5A9030E51BF7DB14005C0A9B /* Earth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Earth.swift; sourceTree = "<group>"; };
 		5ABE3ECC1BF2A26800BBCE5D /* ButtonNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonNode.swift; sourceTree = "<group>"; };
+		5ABF56611BF9223C00856BEE /* MainMenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 				5A896E851BDEC5D2006633FF /* AppDelegate.swift */,
 				5A896E871BDEC5D2006633FF /* GameScene.sks */,
 				5A896E891BDEC5D2006633FF /* GameScene.swift */,
+				5ABF56611BF9223C00856BEE /* MainMenuScene.swift */,
 				5A9030E51BF7DB14005C0A9B /* Earth.swift */,
 				5A7CB1BB1BF6940700D6E977 /* Scoreboard.swift */,
 				5A6BED301BE6C4A50020B9F1 /* Bunker.swift */,
@@ -293,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A896E8A1BDEC5D2006633FF /* GameScene.swift in Sources */,
+				5ABF56621BF9223C00856BEE /* MainMenuScene.swift in Sources */,
 				5A896E8C1BDEC5D2006633FF /* GameViewController.swift in Sources */,
 				5A9030E61BF7DB14005C0A9B /* Earth.swift in Sources */,
 				5A896E861BDEC5D2006633FF /* AppDelegate.swift in Sources */,
