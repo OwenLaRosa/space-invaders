@@ -19,10 +19,8 @@ class MainMenuScene: SKScene {
     }
     
     func configureUI() {
-        // set the coordinate grid to the screen dimensions
-        let screenSize = UIScreen.mainScreen().bounds.size
-        size.width = screenSize.width
-        size.height = screenSize.height
+        size.width = kUniversalScreenWidth
+        size.height = kUniversalScreenHeight
         
         // set the scene's background
         backgroundColor = SKColor.blueColor()

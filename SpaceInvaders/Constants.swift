@@ -9,6 +9,12 @@
 import Foundation
 import SpriteKit
 
+// MARK: - Application
+
+// Use iPhone 6 local resolution to scale up or down
+let kUniversalScreenWidth: CGFloat = 667
+let kUniversalScreenHeight: CGFloat = 375
+
 // MARK: - Game
 
 let kEarth: CGFloat = 32.0
