@@ -24,6 +24,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var gameData: GameData!
     var scoreBoard: ScoreBoard!
     var aliensRemaining = kAlienRows * kAlienColumns
+    var alienStartingRow: CGFloat = 10
     
     // MARK: - Player Properties
     var ship: Player!
@@ -230,7 +231,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let totalHeight = kAlienRows * Int(kAlienSize.height) + (kAlienRows - 1) * kAlienVerticalSpacing
         
         let xOrigin = size.width/2.0 - CGFloat(totalWidth/2)
-        let yOrigin = CGFloat(totalHeight)*2.3 // magic number that works well on 5, 5s screen
+        let yOrigin = (kAlienSize.height + CGFloat(kAlienVerticalSpacing)) * alienStartingRow + kEarth
         
         return CGPoint(x: xOrigin, y: yOrigin)
     }
