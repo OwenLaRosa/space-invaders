@@ -15,6 +15,7 @@ class PauseMenu: SKSpriteNode {
     init() {
         super.init(texture: nil, color: SKColor.blackColor(), size: CGSize(width: kUniversalScreenWidth, height: kUniversalScreenHeight))
         alpha = 0.8 // user should see paused game
+        userInteractionEnabled = true
         
         setupUI()
     }
@@ -36,14 +37,24 @@ class PauseMenu: SKSpriteNode {
         resumeButton.text = "Resume"
         resumeButton.verticalAlignmentMode = .Center
         resumeButton.position = CGPoint(x: 0, y: resumeButton.frame.size.height + buttonPadding/2)
-        resumeButton.callback = {}
+        resumeButton.callback = {
+            // get current scene
+            let scene = self.scene as! GameScene
+            // reveal the game scene
+            self.removeFromParent()
+            // unpause the game
+            scene.pauseGame(false)
+        }
         addChild(resumeButton)
         
         let quitButton = ButtonNode()
         quitButton.text = "Quit"
         quitButton.verticalAlignmentMode = .Center
         quitButton.position = CGPoint(x: 0, y: -resumeButton.frame.size.height - buttonPadding/2)
-        quitButton.callback = {}
+        quitButton.callback = {
+            // go back to main menu
+            self.scene!.view!.presentScene(MainMenuScene(), transition: SKTransition.doorwayWithDuration(1.0))
+        }
         addChild(quitButton)
     }
     

@@ -17,6 +17,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // MARK: - GameProperties
     var isFirstUpdate = true
+    var lastPausedAt = NSDate()
     var aliensLastMoved: CFTimeInterval = 2.0
     var playerLastShot = NSDate()
     var aliensLastShot: CFTimeInterval = 1.5
@@ -73,7 +74,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
-        
+        print(currentTime)
         // wait for the game to start to perform updates
         if isFirstUpdate {
             aliensLastMoved += currentTime
@@ -407,6 +408,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     /// Toggles the paused state of the game and enables/disables relevant UI
     func pauseGame(shouldPause: Bool) {
         paused = shouldPause
+        if paused {
+            lastPausedAt = NSDate()
+        } else {
+            // ensure updates don't occur more often than normal
+            let timeSinceLastPause = -lastPausedAt.timeIntervalSinceNow
+            aliensLastMoved += timeSinceLastPause
+            aliensLastShot += timeSinceLastPause
+        }
         userInteractionEnabled = !shouldPause
         (childNodeWithName(kMoveLeftButtonName) as! ButtonNode).userInteractionEnabled = !shouldPause
         (childNodeWithName(kMoveRightButtonName) as! ButtonNode).userInteractionEnabled = !shouldPause
