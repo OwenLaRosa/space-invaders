@@ -134,8 +134,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         leftButton.fontSize = 85
         leftButton.position = CGPoint(x: leftButton.frame.size.width/2, y: 0)
         leftButton.callback = {
-            let moveLeft = SKAction.moveTo(CGPoint(x: self.ship.position.x - 5, y: self.ship.position.y), duration: 0.05)
-            self.ship.runAction(moveLeft)
+            if self.ship.position.x - 5 > 0 {
+                let moveLeft = SKAction.moveTo(CGPoint(x: self.ship.position.x - 5, y: self.ship.position.y), duration: 0.05)
+                self.ship.runAction(moveLeft)
+            }
         }
         addChild(leftButton)
         
@@ -145,8 +147,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         rightButton.fontSize = 85
         rightButton.position = CGPoint(x: size.width - rightButton.frame.size.width/2, y: 0)
         rightButton.callback = {
-            let moveRight = SKAction.moveTo(CGPoint(x: self.ship.position.x + 5, y: self.ship.position.y), duration: 0.05)
-            self.ship.runAction(moveRight)
+            if self.ship.position.x + 5 < self.size.width {
+                let moveRight = SKAction.moveTo(CGPoint(x: self.ship.position.x + 5, y: self.ship.position.y), duration: 0.05)
+                self.ship.runAction(moveRight)
+            }
+            
         }
         addChild(rightButton)
         
