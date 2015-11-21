@@ -161,6 +161,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         pauseButton.position = CGPoint(x: size.width - pauseButton.frame.size.width/2 - 4, y: size.height - pauseButton.frame.size.height/2 - 8)
         pauseButton.callback = {
             self.pauseGame(!self.paused)
+            let pauseMenu = PauseMenu()
+            pauseMenu.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
+            pauseMenu.zPosition = 1
+            self.addChild(pauseMenu)
         }
         addChild(pauseButton)
     }
