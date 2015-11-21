@@ -10,6 +10,8 @@ import SpriteKit
 
 class PauseMenu: SKSpriteNode {
     
+    let buttonPadding: CGFloat = 8
+    
     init() {
         super.init(texture: nil, color: SKColor.blackColor(), size: CGSize(width: kUniversalScreenWidth, height: kUniversalScreenHeight))
         alpha = 0.8 // user should see paused game
@@ -22,7 +24,27 @@ class PauseMenu: SKSpriteNode {
     }
     
     func setupUI() {
+        let pauseLabel = SKLabelNode()
+        pauseLabel.text = "PAUSED"
+        pauseLabel.fontName = "Courier-Bold"
+        pauseLabel.color = SKColor.whiteColor()
+        pauseLabel.verticalAlignmentMode = .Center
+        pauseLabel.position = CGPoint(x: 0, y: size.height/2 - pauseLabel.frame.size.height - buttonPadding)
+        addChild(pauseLabel)
         
+        let resumeButton = ButtonNode()
+        resumeButton.text = "Resume"
+        resumeButton.verticalAlignmentMode = .Center
+        resumeButton.position = CGPoint(x: 0, y: resumeButton.frame.size.height + buttonPadding/2)
+        resumeButton.callback = {}
+        addChild(resumeButton)
+        
+        let quitButton = ButtonNode()
+        quitButton.text = "Quit"
+        quitButton.verticalAlignmentMode = .Center
+        quitButton.position = CGPoint(x: 0, y: -resumeButton.frame.size.height - buttonPadding/2)
+        quitButton.callback = {}
+        addChild(quitButton)
     }
     
 }
