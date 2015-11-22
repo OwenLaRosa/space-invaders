@@ -16,6 +16,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var maxLocationX: CGFloat!
     
     // MARK: - GameProperties
+    var level: Level!
     var isFirstUpdate = true
     var lastPausedAt = NSDate()
     var aliensLastMoved: CFTimeInterval = 2.0
@@ -25,7 +26,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var gameData: GameData!
     var scoreBoard: ScoreBoard!
     var aliensRemaining = kAlienRows * kAlienColumns
-    var alienStartingRow: CGFloat = 10
     
     // MARK: - Player Properties
     var ship: Player!
@@ -40,7 +40,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         /* Setup your scene here */
         
         // allow score keeping
-        gameData = GameData(level: 1)
+        gameData = GameData(level: level.number)
         gameData.lives = kPlayerStartingLives
         configureScreen()
         setupUI()
@@ -244,7 +244,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let totalHeight = kAlienRows * Int(kAlienSize.height) + (kAlienRows - 1) * kAlienVerticalSpacing
         
         let xOrigin = size.width/2.0 - CGFloat(totalWidth/2)
-        let yOrigin = (kAlienSize.height + CGFloat(kAlienVerticalSpacing)) * alienStartingRow + kEarth
+        let yOrigin = (kAlienSize.height + CGFloat(kAlienVerticalSpacing)) * level.alienStartingRow + kEarth
         
         return CGPoint(x: xOrigin, y: yOrigin)
     }

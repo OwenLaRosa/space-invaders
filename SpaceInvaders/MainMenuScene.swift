@@ -54,7 +54,9 @@ class MainMenuScene: SKScene {
         playButton.verticalAlignmentMode = .Center
         playButton.position = CGPoint(x: 0, y: 0)
         playButton.callback = {
-            self.view?.presentScene(GameScene(), transition: SKTransition.doorwayWithDuration(1.0))
+            let gameScene = GameScene()
+            gameScene.level = Level(number: 1, alienStartingRow: 11)
+            self.view?.presentScene(gameScene, transition: SKTransition.doorwayWithDuration(1.0))
         }
         addButton(toContainer: container, node: playButton)
         
