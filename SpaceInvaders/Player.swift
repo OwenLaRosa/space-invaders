@@ -40,7 +40,7 @@ class Player: SKSpriteNode {
     func shoot() {
         let bullet = Bullet(name: kPlayerBulletName)
         bullet.position = position
-        let target = CGPoint(x: bullet.position.x, y: bullet.position.y + 500) // offscreen
+        let target = CGPoint(x: bullet.position.x, y: kUniversalScreenHeight) // top of screen
         let fireBullet = SKAction.sequence([SKAction.moveTo(target, duration: 1.5), SKAction.removeFromParent()])
         
         bullet.physicsBody?.categoryBitMask = kBulletCategory
