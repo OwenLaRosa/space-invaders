@@ -23,7 +23,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var playerLastShot = NSDate()
     var aliensLastShot: CFTimeInterval = 1.5
     var gameBegan = NSDate()
-    var gameData: GameData!
+    //var gameData: GameData!
     var scoreBoard: ScoreBoard!
     var aliensRemaining = kAlienRows * kAlienColumns
     
@@ -40,8 +40,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         /* Setup your scene here */
         
         // allow score keeping
-        gameData = GameData(level: level.number)
-        gameData.lives = kPlayerStartingLives
+        //gameData = GameData(level: level.number)
+        //gameData.lives = kPlayerStartingLives
         configureScreen()
         setupUI()
         
@@ -124,7 +124,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     /// Add buttons and labels to the scene
     func setupUI() {
         scoreBoard = ScoreBoard(size: CGSize(width: size.width, height: 30))
-        scoreBoard.gameData = gameData
+        scoreBoard.gameData = globalGameData
         scoreBoard.zPosition = 5
         scoreBoard.configureLabel()
         scoreBoard.position = CGPoint(x: size.width/2, y: size.height - scoreBoard.frame.size.height/2)
@@ -386,7 +386,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             // this ensures there aren't too may bullets for too few aliens
             alienShootSpeed += 0.001
             // if the alien is dead, update the score
-            gameData.score += alien.points
+            globalGameData.score += alien.points
             scoreBoard.configureLabel()
         }
         bullet.removeFromParent()
@@ -395,7 +395,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     /// Handle contact between a bullet and the player
     func bulletHitPlayer(bullet bullet: Bullet, player: Player) {
         player.health -= bullet.damage
-        gameData.lives--
+        globalGameData.lives--
         scoreBoard.configureLabel()
         if player.health <= 0 {
             // normally, the player would be killed

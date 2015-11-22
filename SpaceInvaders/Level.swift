@@ -14,3 +14,12 @@ struct Level {
     let alienStartingRow: CGFloat
     
 }
+
+// MARK: - Level Data
+
+let levels = [
+    Level(number: 1, alienStartingRow: 11),
+    Level(number: 2, alienStartingRow: 10),
+    Level(number: 3, alienStartingRow: 9),
+    Level(number: 4, alienStartingRow: 8)
+]

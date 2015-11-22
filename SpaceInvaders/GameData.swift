@@ -21,3 +21,5 @@ class GameData {
     }
     
 }
+
+let globalGameData = GameData(level: levels[0].number)
