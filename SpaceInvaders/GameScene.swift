@@ -125,6 +125,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func setupUI() {
         scoreBoard = ScoreBoard(size: CGSize(width: size.width, height: 30))
         scoreBoard.gameData = gameData
+        scoreBoard.zPosition = 5
         scoreBoard.configureLabel()
         scoreBoard.position = CGPoint(x: size.width/2, y: size.height - scoreBoard.frame.size.height/2)
         addChild(scoreBoard)
@@ -134,6 +135,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         leftButton.text = "<"
         leftButton.fontSize = 85
         leftButton.position = CGPoint(x: leftButton.frame.size.width/2, y: 0)
+        leftButton.zPosition = 5
         leftButton.callback = {
             if self.ship.position.x - 5 > 0 {
                 let moveLeft = SKAction.moveTo(CGPoint(x: self.ship.position.x - 5, y: self.ship.position.y), duration: 0.05)
@@ -147,6 +149,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         rightButton.text = ">"
         rightButton.fontSize = 85
         rightButton.position = CGPoint(x: size.width - rightButton.frame.size.width/2, y: 0)
+        rightButton.zPosition = 5
         rightButton.callback = {
             if self.ship.position.x + 5 < self.size.width {
                 let moveRight = SKAction.moveTo(CGPoint(x: self.ship.position.x + 5, y: self.ship.position.y), duration: 0.05)
@@ -160,11 +163,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         pauseButton.text = "▌▌"
         pauseButton.fontSize = 20
         pauseButton.position = CGPoint(x: size.width - pauseButton.frame.size.width/2 - 4, y: size.height - pauseButton.frame.size.height/2 - 8)
+        pauseButton.zPosition = 6 // above scoreboard
         pauseButton.callback = {
             self.pauseGame(!self.paused)
             let pauseMenu = PauseMenu()
             pauseMenu.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
-            pauseMenu.zPosition = 1
+            pauseMenu.zPosition = 10
             self.addChild(pauseMenu)
         }
         addChild(pauseButton)
