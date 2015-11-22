@@ -17,7 +17,7 @@ class GameData {
     init(level: Int) {
         self.level = level
         score = 0
-        lives = 1
+        lives = 3
     }
     
 }
