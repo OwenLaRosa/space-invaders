@@ -388,6 +388,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             // if the alien is dead, update the score
             globalGameData.score += alien.points
             scoreBoard.configureLabel()
+            if aliensRemaining == 0 {
+                // player wins, go to next level
+                goToNextLevel()
+            }
         }
         bullet.removeFromParent()
     }
@@ -423,6 +427,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         userInteractionEnabled = !shouldPause
         (childNodeWithName(kMoveLeftButtonName) as! ButtonNode).userInteractionEnabled = !shouldPause
         (childNodeWithName(kMoveRightButtonName) as! ButtonNode).userInteractionEnabled = !shouldPause
+    }
+    
+    /// Transition to the next level if another is available. Otherwise, show the victory scene.
+    func goToNextLevel() {
+        // check if another level is available
+        if level!.number < levels.count {
+            let gameScene = GameScene()
+            let nextLevel = levels[level!.number] // next level
+            gameScene.level = nextLevel
+            // update the level count
+            globalGameData.level = nextLevel.number
+            view?.presentScene(gameScene, transition: SKTransition.doorwayWithDuration(1.0))
+        } else {
+            // if not, then the player wins the game
+        }
+        
     }
     
 }
