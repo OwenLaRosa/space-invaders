@@ -22,4 +22,4 @@ class GameData {
     
 }
 
-let globalGameData = GameData(level: levels[0].number)
+var globalGameData = GameData(level: levels[0].number)
