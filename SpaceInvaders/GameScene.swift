@@ -192,6 +192,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let leftMost = getAliensOrigin().x
         let rightMost = size.width - leftMost
         let distanceBetweenBunkers = (rightMost - leftMost)/3.0
+        // four total bunkers, equally spaced
         let bunkerLocations = [
             CGPoint(x: leftMost, y: kBunkerLocationY),
             CGPoint(x: leftMost + distanceBetweenBunkers, y: kBunkerLocationY),
@@ -323,18 +324,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     /// Gets a random alien currently in the game
     func getRandomAlien() -> Alien? {
+        // get an array of all existing alien nodes
         var aliens = [Alien]()
         enumerateChildNodesWithName(kAlienName) {alien, stop in
             aliens.append(alien as! Alien)
         }
+        // don't return an alien if none are available
         if aliens.isEmpty {
             return nil
         }
+        // get and return a random alien
         let randomIndex = arc4random() % UInt32(aliens.count)
         return aliens[Int(randomIndex)]
     }
     
     func shootForAlien(alien: Alien) {
+        // determine bullet speed from two possible values, fast and slow
         let bulletSpeed = arc4random_uniform(2)
         if bulletSpeed % 2 == 1 {
             alien.shoot(kAlienFastBulletSpeed)
