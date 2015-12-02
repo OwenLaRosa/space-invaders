@@ -134,7 +134,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         leftButton.name = kMoveLeftButtonName
         leftButton.text = "<"
         leftButton.fontSize = 85
-        leftButton.position = CGPoint(x: leftButton.frame.size.width/2, y: 0)
         leftButton.zPosition = 5
         leftButton.callback = {
             if self.ship.position.x - 5 > 0 {
@@ -142,13 +141,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.ship.runAction(moveLeft)
             }
         }
-        addChild(leftButton)
         
         let rightButton = LongPressButtonNode()
         rightButton.name = kMoveRightButtonName
         rightButton.text = ">"
         rightButton.fontSize = 85
-        rightButton.position = CGPoint(x: size.width - rightButton.frame.size.width/2, y: 0)
         rightButton.zPosition = 5
         rightButton.callback = {
             if self.ship.position.x + 5 < self.size.width {
@@ -157,6 +154,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             
         }
+        
+        // position the buttons based on the control scheme
+        switch currentControlScheme {
+        case .BothSides:
+            leftButton.position = CGPoint(x: leftButton.frame.size.width/2, y: 0)
+            rightButton.position = CGPoint(x: size.width - rightButton.frame.size.width/2, y: 0)
+        case .LeftSide:
+            leftButton.position = CGPoint(x: leftButton.frame.size.width/2, y: 0)
+            rightButton.position = CGPoint(x: leftButton.frame.size.width + rightButton.frame.size.width/2, y: 0)
+        case .RightSide:
+            leftButton.position = CGPoint(x: size.width - rightButton.frame.size.width - leftButton.frame.size.width/2, y: 0)
+            rightButton.position = CGPoint(x: size.width - rightButton.frame.size.width/2, y: 0)
+        }
+        
+        addChild(leftButton)
         addChild(rightButton)
         
         let pauseButton = ButtonNode()
