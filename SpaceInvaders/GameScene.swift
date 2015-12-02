@@ -350,26 +350,33 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if contact.bodyA.node == nil || contact.bodyB.node == nil {
             return
         }
+        // get a reference to each node
         let node1 = contact.bodyA.node as! SKSpriteNode
         let node2 = contact.bodyB.node as! SKSpriteNode
         
+        // check for different types of contact
         if contact.bodyA.categoryBitMask == kAlienCategory && contact.bodyB.categoryBitMask == kBulletCategory {
+            // the player's bullet hit an alien
             bulletHitAlien(bullet: node2 as! Bullet, alien: node1 as! Alien)
         } else if contact.bodyA.categoryBitMask == kBulletCategory && contact.bodyB.categoryBitMask == kAlienCategory {
             bulletHitAlien(bullet: node1 as! Bullet, alien: node2 as! Alien)
         } else if contact.bodyA.categoryBitMask == kBulletCategory && contact.bodyB.categoryBitMask == kBunkerCategory {
+            // any bullet hit a bunker
             bulletHitBunker(bullet: node1 as! Bullet, bunker: node2 as! BunkerNode)
         } else if contact.bodyA.categoryBitMask == kBunkerCategory && contact.bodyB.categoryBitMask == kBulletCategory {
             bulletHitBunker(bullet: node2 as! Bullet, bunker: node1 as! BunkerNode)
         } else if contact.bodyA.categoryBitMask == kShipCategory && contact.bodyB.categoryBitMask == kBulletCategory {
+            // an alien's bullet hit the ship
             bulletHitPlayer(bullet: node2 as! Bullet, player: node1 as! Player)
         } else if contact.bodyA.categoryBitMask == kBulletCategory && contact.bodyB.categoryBitMask == kShipCategory {
             bulletHitPlayer(bullet: node1 as! Bullet, player: node2 as! Player)
         } else if contact.bodyA.categoryBitMask == kAlienCategory && contact.bodyB.categoryBitMask == kBunkerCategory {
+            // an alien hit a bunker, bunker node will be removed
             node2.removeFromParent()
         } else if contact.bodyA.categoryBitMask == kBunkerCategory && contact.bodyB.categoryBitMask == kAlienCategory {
             node1.removeFromParent()
         } else if contact.bodyA.categoryBitMask == kAlienCategory && contact.bodyB.categoryBitMask == kEarthCategory {
+            // any alien has reached earth, the game is lost
             print("alien reached earth")
         } else if contact.bodyA.categoryBitMask == kEarthCategory && contact.bodyB.categoryBitMask == kAlienCategory {
             print("alien reached earth")
@@ -378,8 +385,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     /// Handle contact between a bullet and an alien
     func bulletHitAlien(bullet bullet: Bullet, alien: Alien) {
+        // remove appropriate health from the alien
         alien.health -= bullet.damage
         if alien.health <= 0 {
+            // if the alien would be killed, remove it
             alien.removeFromParent()
             aliensRemaining--
             // aliens should get faster
@@ -400,18 +409,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             // if the alien is dead, update the score
             globalGameData.score += alien.points
             scoreBoard.configureLabel()
+            // check for player victory (all aliens have been killed)
             if aliensRemaining == 0 {
                 // player wins, go to next level
                 goToNextLevel()
             }
         }
+        // bullet should disappear after contact
         bullet.removeFromParent()
     }
     
     /// Handle contact between a bullet and the player
     func bulletHitPlayer(bullet bullet: Bullet, player: Player) {
+        // decrease the player's health and lives count by the appropriate amount
         player.health -= bullet.damage
         globalGameData.lives--
+        // update the scoreboard to reflect the changes
         scoreBoard.configureLabel()
         if player.health <= 0 {
             // normally, the player would be killed
@@ -421,6 +434,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     /// Handle contact between a bullet and a bunker
     func bulletHitBunker(bullet bullet: Bullet, bunker: BunkerNode) {
+        // when any bullets hits a bunker, both the bullet and bunker node will be destroyed
         bullet.removeFromParent()
         bunker.removeFromParent()
     }
