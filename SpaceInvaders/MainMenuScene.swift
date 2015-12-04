@@ -19,6 +19,7 @@ class MainMenuScene: SKScene {
     }
     
     func configureUI() {
+        scaleMode = .Fill
         size.width = kUniversalScreenWidth
         size.height = kUniversalScreenHeight
         
