@@ -112,7 +112,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     /// Configure the screen to match device size
     func configureScreen() {
-        size.width = kUniversalScreenWidth
+        // use the screen's aspect ratio to determine the appropriate width
+        let screenBounds = UIScreen.mainScreen().bounds
+        let aspectRatio = screenBounds.width / screenBounds.height
+        size.width = kUniversalScreenHeight * aspectRatio
+        // relative height will always be the same
         size.height = kUniversalScreenHeight
         backgroundColor = SKColor.blackColor()
         

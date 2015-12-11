@@ -20,7 +20,9 @@ class MainMenuScene: SKScene {
     
     func configureUI() {
         scaleMode = .Fill
-        size.width = kUniversalScreenWidth
+        let screenBounds = UIScreen.mainScreen().bounds
+        let aspectRatio = screenBounds.width / screenBounds.height
+        size.width = kUniversalScreenHeight * aspectRatio
         size.height = kUniversalScreenHeight
         
         // set the scene's background
