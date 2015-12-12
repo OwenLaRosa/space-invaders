@@ -32,6 +32,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var playerShootSpeed = 1.0
     
     // MARK: - Alien properties
+    var boss: BossAlien?
     var alienMoveSpeed = 1.0
     var alienMoveDirection: MoveDirection = .Right
     var alienShootSpeed = 1.6
@@ -52,6 +53,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addBunkers()
         addPlayerShip()
         addAliens()
+        if let boss = level.boss {
+            addBoss(boss)
+        }
         addEarthIndicator()
         
         // start the game timer
@@ -245,6 +249,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             nextYOrigin -= kAlienSize.height + CGFloat(kAlienHorizontalSpacing)
         }
+    }
+    
+    /// Add a boss alien of the specified type to the game
+    func addBoss(type: BossType) {
+        boss = BossAlien(type: type)
+        let aliensOrigin = getAliensOrigin()
+        let startingHeight = aliensOrigin.y + kAlienSize.height + CGFloat(kAlienVerticalSpacing) + boss!.size.height/2
+        boss!.position = CGPoint(x: size.width/2, y: startingHeight)
+        addChild(boss!)
     }
     
     /// Add a line that signals Earth's location
