@@ -321,6 +321,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 alien.position.x -= kAlienMovementX
             }
         }
+        moveBoss(changeDirection: shouldChangeDirection)
+    }
+    
+    /// Move the boss alien to the next appropriate location
+    func moveBoss(changeDirection changeDirection: Bool) {
+        // return if the level does not contain a boss
+        if boss == nil {
+            return
+        }
+        // check if the boss should move vertically
+        if changeDirection {
+            boss!.position.y -= kAlienMovementY
+            return
+        }
+        // some mild repetition, just like the previous method
+        if self.alienMoveDirection == .Right  {
+            boss!.position.x += kAlienMovementX
+        } else {
+            boss!.position.x -= kAlienMovementX
+        }
     }
     
     /// Find the closest alien that can hit the player
