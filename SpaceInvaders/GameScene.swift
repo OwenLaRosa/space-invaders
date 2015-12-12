@@ -22,6 +22,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var aliensLastMoved: CFTimeInterval = 2.0
     var playerLastShot = NSDate()
     var aliensLastShot: CFTimeInterval = 1.5
+    var bossLastShot: CFTimeInterval = 1.0 // less time than normal to avoid "cheap shots"
     var gameBegan = NSDate()
     //var gameData: GameData!
     var scoreBoard: ScoreBoard!
@@ -103,6 +104,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 }
             }
             aliensLastShot = currentTime
+        }
+        
+        if boss != nil {
+            if (currentTime - boss!.shootingInterval) >= bossLastShot {
+                boss!.shoot(kAlienSlowBulletSpeed)
+                bossLastShot = currentTime
+            }
         }
         
         // handle alien movement
