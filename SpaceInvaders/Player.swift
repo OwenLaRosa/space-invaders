@@ -25,7 +25,12 @@ class Player: SKSpriteNode {
     
     func addPhysics() {
         // configure the player's physics body
-        physicsBody = SKPhysicsBody(rectangleOfSize: frame.size)
+        
+        // specify size and position for the physics body.
+        // will be a "line" on the top edge of the player
+        let physicsSize = CGSize(width: size.width, height: 1)
+        let physicsPosition = CGPoint(x: 0, y: size.height/2 - 1) // -1: take height into account
+        physicsBody = SKPhysicsBody(rectangleOfSize: physicsSize, center: physicsPosition)
         physicsBody?.dynamic = true
         physicsBody?.affectedByGravity = false
         physicsBody?.mass = 0.01
