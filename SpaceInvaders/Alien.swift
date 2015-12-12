@@ -57,11 +57,18 @@ class BossAlien: Alien {
     
     // Specifies whether or not the boss has an animation effect
     var animated = false
+    var shootingInterval = 0.0
     
-    override init() {
+    init(type: BossType) {
         super.init()
         name = kBossAlienName
         size = kBossAlienSize
+        // set the appropriate properties
+        let info = bossInfo[type.rawValue]
+        health = info.health
+        points = info.points
+        shootingInterval = info.shootingInterval
+        animated = info.animated
     }
 
     required init?(coder aDecoder: NSCoder) {
