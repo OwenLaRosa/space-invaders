@@ -34,7 +34,9 @@ let kPlayerStartingLives = 3
 // MARK: - Aliens
 
 let kAlienName = "alien"
+let kBossAlienName = "bossAlien"
 let kAlienSize = CGSize(width: 24, height: 18)
+let kBossAlienSize = CGSize(width: kAlienSize.width * 1.5, height: kAlienSize.height * 1.5)
 let kAlienColor = SKColor.whiteColor()
 
 let kAlienRows = 5

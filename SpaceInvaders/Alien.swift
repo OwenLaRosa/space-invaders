@@ -52,3 +52,20 @@ class Alien: SKSpriteNode {
     }
     
 }
+
+class BossAlien: Alien {
+    
+    // Specifies whether or not the boss has an animation effect
+    var animated = false
+    
+    override init() {
+        super.init()
+        name = kBossAlienName
+        size = kBossAlienSize
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+}
