@@ -42,8 +42,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         /* Setup your scene here */
         
         // allow score keeping
-        //gameData = GameData(level: level.number)
-        //gameData.lives = kPlayerStartingLives
         configureScreen()
         setupUI()
         
@@ -279,7 +277,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func getAliensOrigin() -> CGPoint {
         // width and height of entire alien grid, including spacing
         let totalWidth = kAlienColumns * Int(kAlienSize.width) + (kAlienColumns - 1) * kAlienHorizontalSpacing
-        let totalHeight = kAlienRows * Int(kAlienSize.height) + (kAlienRows - 1) * kAlienVerticalSpacing
         
         let xOrigin = size.width/2.0 - CGFloat(totalWidth/2)
         let yOrigin = (kAlienSize.height + CGFloat(kAlienVerticalSpacing)) * level.alienStartingRow + kEarth
