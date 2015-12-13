@@ -440,7 +440,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if alien.health <= 0 {
             // if the alien would be killed, remove it
             alien.removeFromParent()
-            aliensRemaining--
+            // decrease the alien count if it's a regular alien
+            if let _ = alien as? BossAlien { } else {
+                aliensRemaining--
+            }
             // aliens should get faster
             if aliensRemaining <= 10 {
                 // large amount if near end of game
@@ -460,7 +463,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             globalGameData.score += alien.points
             scoreBoard.configureLabel()
             // check for player victory (all aliens have been killed)
-            if aliensRemaining == 0 {
+            // right side will be true of no boss exists
+            if aliensRemaining == 0 && boss?.health ?? 0 <= 0 {
                 // player wins, go to next level
                 goToNextLevel()
             }
