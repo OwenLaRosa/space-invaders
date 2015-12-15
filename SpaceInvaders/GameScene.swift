@@ -432,6 +432,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     /// Handle contact between a bullet and an alien
     func bulletHitAlien(bullet bullet: Bullet, alien: Alien) {
+        // make sure the same bullet can't kill multiple aliens
+        if bullet.parent == nil {
+            return
+        }
         // remove appropriate health from the alien
         alien.health -= bullet.damage
         if alien.health <= 0 {
