@@ -327,6 +327,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if boss == nil {
             return
         }
+        if aliensRemaining == 0 {
+            print("aliens remaing: 0")
+            moveBossContinuous()
+            return
+        }
         // check if the boss should move vertically
         if changeDirection {
             boss!.position.y -= kAlienMovementY
@@ -337,6 +342,35 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             boss!.position.x += kAlienMovementX
         } else {
             boss!.position.x -= kAlienMovementX
+        }
+    }
+    
+    /// Move the boss in a continuous path. This is used at the end of the game when there are no more aliens to govern movement.
+    func moveBossContinuous() {
+        // identifier for movement actions
+        let actionKey = "bossMove"
+        // check if a move action is already executing
+        if let _ = actionForKey(actionKey) {
+            // if so, then do nothing
+            return
+        }
+        let moveDuration: CGFloat = 3.0 // 3 seconds
+        // distance between the minimum and maximum locations for aliens
+        let totalDistance = maxLocationX - minLocationX
+        if alienMoveDirection == .Right {
+            print("MOVE BOSS RIGHT")
+            // calculate duration based on distance to the destination
+            let actualDuration = (maxLocationX! - boss!.position.x) / totalDistance * moveDuration
+            let moveAction = SKAction.moveToX(maxLocationX, duration: abs(NSTimeInterval(actualDuration)))
+            boss!.runAction(moveAction, withKey: actionKey)
+            // change movement direction
+            alienMoveDirection = .Left
+        } else { // move left
+            print("MOVE BOSS LEFT")
+            let actualDuration = (boss!.position.x - minLocationX) / totalDistance * moveDuration
+            let moveAction = SKAction.moveToX(minLocationX, duration: abs(NSTimeInterval(actualDuration)))
+            boss!.runAction(moveAction, withKey: actionKey)
+            alienMoveDirection = .Right
         }
     }
     
