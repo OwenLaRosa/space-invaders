@@ -350,7 +350,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // identifier for movement actions
         let actionKey = "bossMove"
         // check if a move action is already executing
-        if let _ = actionForKey(actionKey) {
+        if boss!.actionForKey(actionKey) != nil {
             // if so, then do nothing
             return
         }
