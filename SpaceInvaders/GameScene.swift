@@ -362,14 +362,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             // calculate duration based on distance to the destination
             let actualDuration = (maxLocationX! - boss!.position.x) / totalDistance * moveDuration
             let moveAction = SKAction.moveToX(maxLocationX, duration: abs(NSTimeInterval(actualDuration)))
-            boss!.runAction(moveAction, withKey: actionKey)
+            // move down when the action is completed
+            let descend = SKAction.moveToY(boss!.position.y - kAlienMovementY, duration: 0.1)
+            let sequence = SKAction.sequence([moveAction, descend])
+            boss!.runAction(sequence, withKey: actionKey)
             // change movement direction
             alienMoveDirection = .Left
         } else { // move left
             print("MOVE BOSS LEFT")
             let actualDuration = (boss!.position.x - minLocationX) / totalDistance * moveDuration
             let moveAction = SKAction.moveToX(minLocationX, duration: abs(NSTimeInterval(actualDuration)))
-            boss!.runAction(moveAction, withKey: actionKey)
+            let descend = SKAction.moveToY(boss!.position.y - kAlienMovementY, duration: 0.1)
+            let sequence = SKAction.sequence([moveAction, descend])
+            boss!.runAction(sequence, withKey: actionKey)
             alienMoveDirection = .Right
         }
     }
