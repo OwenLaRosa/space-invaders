@@ -328,7 +328,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             return
         }
         if aliensRemaining == 0 {
-            print("aliens remaing: 0")
             moveBossContinuous()
             return
         }
@@ -358,7 +357,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // distance between the minimum and maximum locations for aliens
         let totalDistance = maxLocationX - minLocationX
         if alienMoveDirection == .Right {
-            print("MOVE BOSS RIGHT")
             // calculate duration based on distance to the destination
             let actualDuration = (maxLocationX! - boss!.position.x) / totalDistance * moveDuration
             let moveAction = SKAction.moveToX(maxLocationX, duration: abs(NSTimeInterval(actualDuration)))
@@ -369,7 +367,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             // change movement direction
             alienMoveDirection = .Left
         } else { // move left
-            print("MOVE BOSS LEFT")
             let actualDuration = (boss!.position.x - minLocationX) / totalDistance * moveDuration
             let moveAction = SKAction.moveToX(minLocationX, duration: abs(NSTimeInterval(actualDuration)))
             let descend = SKAction.moveToY(boss!.position.y - kAlienMovementY, duration: 0.1)
