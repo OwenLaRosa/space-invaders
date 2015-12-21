@@ -69,10 +69,19 @@ class BossAlien: Alien {
         points = info.points
         shootingInterval = info.shootingInterval
         animated = info.animated
+        if animated {
+            startAnimation()
+        }
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func startAnimation() {
+        let firstAnimation = SKAction.colorizeWithColor(SKColor.cyanColor(), colorBlendFactor: 0.0, duration: 1.5)
+        let secondAnimation = SKAction.colorizeWithColor(SKColor.whiteColor(), colorBlendFactor: 0.0, duration: 1.5)
+        runAction(SKAction.repeatActionForever(SKAction.sequence([firstAnimation, secondAnimation])))
     }
     
 }
