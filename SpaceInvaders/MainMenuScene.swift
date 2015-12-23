@@ -74,6 +74,10 @@ class MainMenuScene: SKScene {
         optionsButton.fontColor = SKColor.whiteColor()
         optionsButton.verticalAlignmentMode = .Center
         optionsButton.position = CGPoint(x: 0, y: -optionsButton.frame.size.height - buttonPadding)
+        optionsButton.callback = {
+            // display view to change the settings
+            self.view?.window?.rootViewController?.performSegueWithIdentifier("ShowSettingsViewController", sender: nil)
+        }
         addButton(toContainer: container, node: optionsButton)
     }
     

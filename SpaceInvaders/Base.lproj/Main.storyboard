@@ -18,9 +18,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="7aR-dF-Ydf" kind="presentation" identifier="ShowSettingsViewController" id="ohT-ax-CJQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="438" y="284"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="0nL-fq-Ub7">
