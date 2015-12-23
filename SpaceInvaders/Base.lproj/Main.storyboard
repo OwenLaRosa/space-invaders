@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BV1-FR-VrT">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
         <!--Game View Controller-->
@@ -21,6 +21,48 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="0nL-fq-Ub7">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="7aR-dF-Ydf" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MVc-0m-yVF"/>
+                        <viewControllerLayoutGuide type="bottom" id="fYd-PE-fiq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5NP-d8-AP1">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TDs-M2-W3h">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <items>
+                                    <navigationItem title="Settings" id="rx9-Ek-Lrw">
+                                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="cancel" id="RFW-5V-boH"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4qi-qF-ULU">
+                                <rect key="frame" x="0.0" y="44" width="600" height="556"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4qi-qF-ULU" firstAttribute="leading" secondItem="TDs-M2-W3h" secondAttribute="leading" id="60M-xW-s2F"/>
+                            <constraint firstItem="4qi-qF-ULU" firstAttribute="bottom" secondItem="fYd-PE-fiq" secondAttribute="top" id="Xg3-sf-Eew"/>
+                            <constraint firstItem="4qi-qF-ULU" firstAttribute="top" secondItem="TDs-M2-W3h" secondAttribute="bottom" id="bnR-cP-tK8"/>
+                            <constraint firstItem="TDs-M2-W3h" firstAttribute="leading" secondItem="5NP-d8-AP1" secondAttribute="leading" id="lbl-xv-4KN"/>
+                            <constraint firstItem="TDs-M2-W3h" firstAttribute="top" secondItem="MVc-0m-yVF" secondAttribute="bottom" id="qcS-G1-ux8"/>
+                            <constraint firstItem="4qi-qF-ULU" firstAttribute="trailing" secondItem="TDs-M2-W3h" secondAttribute="trailing" id="wUA-3z-xsa"/>
+                            <constraint firstAttribute="trailing" secondItem="TDs-M2-W3h" secondAttribute="trailing" id="y1x-5u-vvZ"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5yi-VI-ov6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1138" y="284"/>
         </scene>
     </scenes>
 </document>
