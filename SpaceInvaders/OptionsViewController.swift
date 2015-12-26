@@ -10,4 +10,8 @@ import UIKit
 
 class OptionsViewController: UIViewController {
     
+    @IBAction func cancelButtonTapped(sender: UIBarButtonItem) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
 }
