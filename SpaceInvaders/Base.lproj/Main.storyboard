@@ -26,10 +26,10 @@
             </objects>
             <point key="canvasLocation" x="438" y="284"/>
         </scene>
-        <!--View Controller-->
+        <!--Options View Controller-->
         <scene sceneID="0nL-fq-Ub7">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="7aR-dF-Ydf" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="7aR-dF-Ydf" customClass="OptionsViewController" customModule="SpaceInvaders" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MVc-0m-yVF"/>
                         <viewControllerLayoutGuide type="bottom" id="fYd-PE-fiq"/>

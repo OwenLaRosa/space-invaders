@@ -10,6 +10,7 @@
 		5A6BED311BE6C4A50020B9F1 /* Bunker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6BED301BE6C4A50020B9F1 /* Bunker.swift */; };
 		5A7CB1BC1BF6940700D6E977 /* Scoreboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7CB1BB1BF6940700D6E977 /* Scoreboard.swift */; };
 		5A7CB1C01BF698C700D6E977 /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7CB1BF1BF698C700D6E977 /* GameData.swift */; };
+		5A8850BD1C2F513A000850FB /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8850BC1C2F513A000850FB /* OptionsViewController.swift */; };
 		5A896E861BDEC5D2006633FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A896E851BDEC5D2006633FF /* AppDelegate.swift */; };
 		5A896E881BDEC5D2006633FF /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5A896E871BDEC5D2006633FF /* GameScene.sks */; };
 		5A896E8A1BDEC5D2006633FF /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A896E891BDEC5D2006633FF /* GameScene.swift */; };
@@ -52,6 +53,7 @@
 		5A6BED301BE6C4A50020B9F1 /* Bunker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bunker.swift; sourceTree = "<group>"; };
 		5A7CB1BB1BF6940700D6E977 /* Scoreboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scoreboard.swift; sourceTree = "<group>"; };
 		5A7CB1BF1BF698C700D6E977 /* GameData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
+		5A8850BC1C2F513A000850FB /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		5A896E821BDEC5D2006633FF /* SpaceInvaders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceInvaders.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A896E851BDEC5D2006633FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A896E871BDEC5D2006633FF /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				5ABE3ECC1BF2A26800BBCE5D /* ButtonNode.swift */,
+				5A8850BC1C2F513A000850FB /* OptionsViewController.swift */,
 				5A896E851BDEC5D2006633FF /* AppDelegate.swift */,
 				5A896E871BDEC5D2006633FF /* GameScene.sks */,
 				5A896E891BDEC5D2006633FF /* GameScene.swift */,
@@ -310,6 +313,7 @@
 				5A8DEF3A1C02313300D9043E /* Level.swift in Sources */,
 				5A9030E61BF7DB14005C0A9B /* Earth.swift in Sources */,
 				5A896E861BDEC5D2006633FF /* AppDelegate.swift in Sources */,
+				5A8850BD1C2F513A000850FB /* OptionsViewController.swift in Sources */,
 				5A7CB1BC1BF6940700D6E977 /* Scoreboard.swift in Sources */,
 				5A7CB1C01BF698C700D6E977 /* GameData.swift in Sources */,
 				5A8D237F1BE55DD400E6B053 /* Alien.swift in Sources */,
