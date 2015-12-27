@@ -269,7 +269,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     /// Add a line that signals Earth's location
     func addEarthIndicator() {
         let earth = Earth(width: size.width)
-        earth.position = CGPoint(x: size.width/2, y: kEarth)
+        earth.position = CGPoint(x: size.width/2, y: kEarth - kEarthHeight/2.0)
         addChild(earth)
     }
     
