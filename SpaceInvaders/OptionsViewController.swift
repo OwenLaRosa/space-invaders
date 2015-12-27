@@ -26,7 +26,7 @@ extension OptionsViewController: UITableViewDataSource {
         var rows = 0
         switch section {
         case 0:
-            rows = 1
+            rows = 3
         default:
             break
         }
@@ -36,7 +36,7 @@ extension OptionsViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = UITableViewCell()
         switch (indexPath.section, indexPath.row) {
-        case (0, 0):
+        case (0, 0), (0, 1), (0, 2):
             cell = tableView.dequeueReusableCellWithIdentifier("PickerViewCell")!
         default:
             break
@@ -57,9 +57,17 @@ extension OptionsViewController: UITableViewDataSource {
     }
     
     private func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
-        switch (indexPath.section, indexPath.row) {
-        default:
-            break
+        if indexPath.section == 0 {
+            switch indexPath.row {
+            case 0:
+                cell.textLabel?.text = "Both Sides"
+            case 1:
+                cell.textLabel?.text = "Left Side"
+            case 2:
+                cell.textLabel?.text = "Right Side"
+            default:
+                break
+            }
         }
     }
     
