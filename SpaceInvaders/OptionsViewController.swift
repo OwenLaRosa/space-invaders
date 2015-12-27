@@ -72,3 +72,22 @@ extension OptionsViewController: UITableViewDataSource {
     }
     
 }
+
+extension OptionsViewController: UITableViewDelegate {
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.section == 0 {
+            switch indexPath.row {
+            case 0:
+                currentControlScheme = .BothSides
+            case 1:
+                currentControlScheme = .LeftSide
+            case 2:
+                currentControlScheme = .RightSide
+            default:
+                break
+            }
+        }
+    }
+    
+}
