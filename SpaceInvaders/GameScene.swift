@@ -518,7 +518,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func bulletHitPlayer(bullet bullet: Bullet, player: Player) {
         // decrease the player's health and lives count by the appropriate amount
         player.health -= bullet.damage
-        globalGameData.lives--
+        if bullet.damage > 0 {
+            globalGameData.lives--
+        }
         // update the scoreboard to reflect the changes
         scoreBoard.configureLabel()
         if player.health <= 0 {

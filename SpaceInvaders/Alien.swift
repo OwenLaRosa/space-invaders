@@ -47,6 +47,10 @@ class Alien: SKSpriteNode {
         bullet.physicsBody?.contactTestBitMask = kShipCategory | kBunkerCategory
         bullet.physicsBody?.collisionBitMask = 0x0
         
+        if position.y - size.height/2.0 - kAlienMovementY <= kEarth {
+            bullet.damage = 0
+        }
+        
         parent?.addChild(bullet)
         bullet.runAction(fireBullet)
     }
