@@ -10,6 +10,8 @@ import UIKit
 
 class OptionsViewController: UIViewController {
     
+    @IBOutlet weak var tableView: UITableView!
+    
     @IBAction func cancelButtonTapped(sender: UIBarButtonItem) {
         dismissViewControllerAnimated(true, completion: nil)
     }
@@ -68,6 +70,11 @@ extension OptionsViewController: UITableViewDataSource {
             default:
                 break
             }
+            if indexPath.row == currentControlScheme.rawValue {
+                cell.accessoryType = .Checkmark
+            } else {
+                cell.accessoryType = .None
+            }
         }
     }
     
@@ -88,6 +95,7 @@ extension OptionsViewController: UITableViewDelegate {
                 break
             }
         }
+        tableView.reloadData()
     }
     
 }
