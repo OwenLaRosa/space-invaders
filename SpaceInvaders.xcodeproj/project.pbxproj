@@ -106,6 +106,79 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A661F8C1C3B257A001AA576 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5A896E8B1BDEC5D2006633FF /* GameViewController.swift */,
+				5A8850BC1C2F513A000850FB /* OptionsViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		5A661F8D1C3B25B9001AA576 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				5A896E891BDEC5D2006633FF /* GameScene.swift */,
+				5ABF56611BF9223C00856BEE /* MainMenuScene.swift */,
+			);
+			name = Scene;
+			sourceTree = "<group>";
+		};
+		5A661F8E1C3B25E8001AA576 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5A661F911C3B2615001AA576 /* UI */,
+				5A661F8F1C3B25F6001AA576 /* Sprites */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		5A661F8F1C3B25F6001AA576 /* Sprites */ = {
+			isa = PBXGroup;
+			children = (
+				5A8D237C1BE55DC700E6B053 /* Player.swift */,
+				5A8FEC4F1BF3D9AF00248335 /* Bullet.swift */,
+				5A8D237E1BE55DD400E6B053 /* Alien.swift */,
+				5A9030E51BF7DB14005C0A9B /* Earth.swift */,
+				5A6BED301BE6C4A50020B9F1 /* Bunker.swift */,
+			);
+			name = Sprites;
+			sourceTree = "<group>";
+		};
+		5A661F911C3B2615001AA576 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				5ABE3ECC1BF2A26800BBCE5D /* ButtonNode.swift */,
+				5ABE6A911BFFF158008A9969 /* PauseMenu.swift */,
+				5A7CB1BB1BF6940700D6E977 /* Scoreboard.swift */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		5A661F921C3B267E001AA576 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5A8FCDAC1C0F8D49000D5059 /* Settings.swift */,
+				5A8DEF391C02313300D9043E /* Level.swift */,
+				5A7CB1BF1BF698C700D6E977 /* GameData.swift */,
+				5A896EB71BDEC86C006633FF /* Constants.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		5A661F931C3B26B1001AA576 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5A896E851BDEC5D2006633FF /* AppDelegate.swift */,
+				5A896E871BDEC5D2006633FF /* GameScene.sks */,
+				5A896E8D1BDEC5D2006633FF /* Main.storyboard */,
+				5A896E901BDEC5D2006633FF /* Assets.xcassets */,
+				5A896E921BDEC5D2006633FF /* LaunchScreen.storyboard */,
+				5A896E951BDEC5D2006633FF /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		5A896E791BDEC5D2006633FF = {
 			isa = PBXGroup;
 			children = (
@@ -129,28 +202,11 @@
 		5A896E841BDEC5D2006633FF /* SpaceInvaders */ = {
 			isa = PBXGroup;
 			children = (
-				5ABE3ECC1BF2A26800BBCE5D /* ButtonNode.swift */,
-				5A8850BC1C2F513A000850FB /* OptionsViewController.swift */,
-				5A896E851BDEC5D2006633FF /* AppDelegate.swift */,
-				5A896E871BDEC5D2006633FF /* GameScene.sks */,
-				5A896E891BDEC5D2006633FF /* GameScene.swift */,
-				5A8FCDAC1C0F8D49000D5059 /* Settings.swift */,
-				5A8DEF391C02313300D9043E /* Level.swift */,
-				5ABE6A911BFFF158008A9969 /* PauseMenu.swift */,
-				5ABF56611BF9223C00856BEE /* MainMenuScene.swift */,
-				5A9030E51BF7DB14005C0A9B /* Earth.swift */,
-				5A7CB1BB1BF6940700D6E977 /* Scoreboard.swift */,
-				5A6BED301BE6C4A50020B9F1 /* Bunker.swift */,
-				5A7CB1BF1BF698C700D6E977 /* GameData.swift */,
-				5A8D237C1BE55DC700E6B053 /* Player.swift */,
-				5A8FEC4F1BF3D9AF00248335 /* Bullet.swift */,
-				5A8D237E1BE55DD400E6B053 /* Alien.swift */,
-				5A896EB71BDEC86C006633FF /* Constants.swift */,
-				5A896E8B1BDEC5D2006633FF /* GameViewController.swift */,
-				5A896E8D1BDEC5D2006633FF /* Main.storyboard */,
-				5A896E901BDEC5D2006633FF /* Assets.xcassets */,
-				5A896E921BDEC5D2006633FF /* LaunchScreen.storyboard */,
-				5A896E951BDEC5D2006633FF /* Info.plist */,
+				5A661F921C3B267E001AA576 /* Model */,
+				5A661F8E1C3B25E8001AA576 /* View */,
+				5A661F8C1C3B257A001AA576 /* Controller */,
+				5A661F8D1C3B25B9001AA576 /* Scene */,
+				5A661F931C3B26B1001AA576 /* Supporting Files */,
 			);
 			path = SpaceInvaders;
 			sourceTree = "<group>";
