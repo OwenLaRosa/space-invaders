@@ -27,7 +27,7 @@ class VictoryScreen: SKSpriteNode {
     
     private func setupUI() {
         let victoryLabel = SKLabelNode()
-        victoryLabel.text = "Well done, Earthling."
+        victoryLabel.text = "Well done, Earthling.".uppercaseString
         victoryLabel.fontName = "Courier-Bold"
         victoryLabel.fontColor = SKColor.greenColor()
         victoryLabel.verticalAlignmentMode = .Center
@@ -35,7 +35,8 @@ class VictoryScreen: SKSpriteNode {
         addChild(victoryLabel)
         
         let messageLabel = SKLabelNode()
-        messageLabel.text = "You win this time!"
+        messageLabel.text = "level: \(globalGameData.level) score: \(globalGameData.score) lives: \(globalGameData.lives)".uppercaseString
+        messageLabel.fontSize = 20
         messageLabel.fontName = "Courier"
         messageLabel.verticalAlignmentMode = .Center
         messageLabel.position = CGPoint(x: 0, y: victoryLabel.position.y - victoryLabel.frame.size.height)
