@@ -27,6 +27,7 @@
 		5A8FCDAD1C0F8D49000D5059 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8FCDAC1C0F8D49000D5059 /* Settings.swift */; };
 		5A8FEC501BF3D9AF00248335 /* Bullet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8FEC4F1BF3D9AF00248335 /* Bullet.swift */; };
 		5A9030E61BF7DB14005C0A9B /* Earth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9030E51BF7DB14005C0A9B /* Earth.swift */; };
+		5AA69C5D1C3F1138004995D9 /* VictoryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA69C5C1C3F1138004995D9 /* VictoryScreen.swift */; };
 		5ABE3ECD1BF2A26800BBCE5D /* ButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABE3ECC1BF2A26800BBCE5D /* ButtonNode.swift */; };
 		5ABE6A921BFFF158008A9969 /* PauseMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABE6A911BFFF158008A9969 /* PauseMenu.swift */; };
 		5ABF56621BF9223C00856BEE /* MainMenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABF56611BF9223C00856BEE /* MainMenuScene.swift */; };
@@ -76,6 +77,7 @@
 		5A8FCDAC1C0F8D49000D5059 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		5A8FEC4F1BF3D9AF00248335 /* Bullet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bullet.swift; sourceTree = "<group>"; };
 		5A9030E51BF7DB14005C0A9B /* Earth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Earth.swift; sourceTree = "<group>"; };
+		5AA69C5C1C3F1138004995D9 /* VictoryScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VictoryScreen.swift; sourceTree = "<group>"; };
 		5ABE3ECC1BF2A26800BBCE5D /* ButtonNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonNode.swift; sourceTree = "<group>"; };
 		5ABE6A911BFFF158008A9969 /* PauseMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PauseMenu.swift; sourceTree = "<group>"; };
 		5ABF56611BF9223C00856BEE /* MainMenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuScene.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				5ABE3ECC1BF2A26800BBCE5D /* ButtonNode.swift */,
 				5ABE6A911BFFF158008A9969 /* PauseMenu.swift */,
 				5A7CB1BB1BF6940700D6E977 /* Scoreboard.swift */,
+				5AA69C5C1C3F1138004995D9 /* VictoryScreen.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				5A896E861BDEC5D2006633FF /* AppDelegate.swift in Sources */,
 				5A8850BD1C2F513A000850FB /* OptionsViewController.swift in Sources */,
 				5A7CB1BC1BF6940700D6E977 /* Scoreboard.swift in Sources */,
+				5AA69C5D1C3F1138004995D9 /* VictoryScreen.swift in Sources */,
 				5A7CB1C01BF698C700D6E977 /* GameData.swift in Sources */,
 				5A8D237F1BE55DD400E6B053 /* Alien.swift in Sources */,
 				5A8D237D1BE55DC700E6B053 /* Player.swift in Sources */,
