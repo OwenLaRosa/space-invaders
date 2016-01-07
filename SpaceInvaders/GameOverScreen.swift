@@ -1,5 +1,5 @@
 //
-//  VictoryScreen.swift
+//  GameOverScreen.swift
 //  SpaceInvaders
 //
 //  Created by Owen LaRosa on 1/7/16.
@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class VictoryScreen: SKSpriteNode {
+class GameOverScreen: SKSpriteNode {
     
     let buttonPadding: CGFloat = 8
     
