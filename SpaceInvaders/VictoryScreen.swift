@@ -12,24 +12,28 @@ class VictoryScreen: SKSpriteNode {
     
     let buttonPadding: CGFloat = 8
     
-    init() {
+    init(victory: Bool) {
         super.init(texture: nil, color: SKColor.blackColor(), size: CGSize(width: kUniversalScreenWidth, height: kUniversalScreenHeight))
         
         alpha = 0.8
         userInteractionEnabled = true
         
-        setupUI()
+        setupUI(victory)
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupUI() {
+    private func setupUI(victory: Bool) {
         let victoryLabel = SKLabelNode()
-        victoryLabel.text = "Well done, Earthling.".uppercaseString
+        victoryLabel.text = "game over".uppercaseString
+        victoryLabel.fontColor = SKColor.redColor()
+        if victory {
+            victoryLabel.text = "Well done, Earthling.".uppercaseString
+            victoryLabel.fontColor = SKColor.greenColor()
+        }
         victoryLabel.fontName = "Courier-Bold"
-        victoryLabel.fontColor = SKColor.greenColor()
         victoryLabel.verticalAlignmentMode = .Center
         victoryLabel.position = CGPoint(x: 0, y: size.height/2 - victoryLabel.frame.size.height - buttonPadding)
         addChild(victoryLabel)
