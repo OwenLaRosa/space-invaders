@@ -147,7 +147,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let leftButton = LongPressButtonNode()
         leftButton.name = kMoveLeftButtonName
         leftButton.text = "<"
-        leftButton.fontSize = 85
+        leftButton.fontSize = CGFloat(currentControlSize.rawValue)
         leftButton.zPosition = 5
         leftButton.callback = {
             if self.ship.position.x - 5 > 0 {
@@ -159,7 +159,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let rightButton = LongPressButtonNode()
         rightButton.name = kMoveRightButtonName
         rightButton.text = ">"
-        rightButton.fontSize = 85
+        rightButton.fontSize = CGFloat(currentControlSize.rawValue)
         rightButton.zPosition = 5
         rightButton.callback = {
             if self.ship.position.x + 5 < self.size.width {
