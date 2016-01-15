@@ -77,7 +77,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
-        print(currentTime)
+        
         // wait for the game to start to perform updates
         if isFirstUpdate {
             aliensLastMoved += currentTime
@@ -460,9 +460,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             node1.removeFromParent()
         } else if contact.bodyA.categoryBitMask == kAlienCategory && contact.bodyB.categoryBitMask == kEarthCategory {
             // any alien has reached earth, the game is lost
-            print("alien reached earth")
+            
         } else if contact.bodyA.categoryBitMask == kEarthCategory && contact.bodyB.categoryBitMask == kAlienCategory {
-            print("alien reached earth")
+            
         }
     }
     
