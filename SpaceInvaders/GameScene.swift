@@ -460,9 +460,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             node1.removeFromParent()
         } else if contact.bodyA.categoryBitMask == kAlienCategory && contact.bodyB.categoryBitMask == kEarthCategory {
             // any alien has reached earth, the game is lost
-            
+            endGame(victory: false)
         } else if contact.bodyA.categoryBitMask == kEarthCategory && contact.bodyB.categoryBitMask == kAlienCategory {
-            
+            endGame(victory: false)
         }
     }
     
@@ -566,6 +566,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             // if not, then the player wins the game
         }
         
+    }
+    
+    /// End the game and show the game over screen.
+    func endGame(victory victory: Bool) {
+        // suspend all game activity
+        pauseGame(true)
+        // display the appropriate game over screen
+        let gameOverScreen = GameOverScreen(victory: victory)
+        gameOverScreen.zPosition = 15
+        gameOverScreen.position = CGPoint(x: size.width/2, y: size.height/2)
+        addChild(gameOverScreen)
     }
     
 }
