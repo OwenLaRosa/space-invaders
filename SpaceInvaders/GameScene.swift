@@ -523,9 +523,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         // update the scoreboard to reflect the changes
         scoreBoard.configureLabel()
-        if player.health <= 0 {
+        if globalGameData.lives <= 0 {
             // normally, the player would be killed
             // for debugging purposes, this will be added later
+            endGame(victory: false)
         }
     }
     
@@ -564,6 +565,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             view?.presentScene(gameScene, transition: SKTransition.doorwayWithDuration(1.0))
         } else {
             // if not, then the player wins the game
+            endGame(victory: true)
         }
         
     }
