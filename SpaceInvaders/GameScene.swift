@@ -460,9 +460,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             node1.removeFromParent()
         } else if contact.bodyA.categoryBitMask == kAlienCategory && contact.bodyB.categoryBitMask == kEarthCategory {
             // any alien has reached earth, the game is lost
-            endGame(victory: false)
+            //endGame(victory: false)
         } else if contact.bodyA.categoryBitMask == kEarthCategory && contact.bodyB.categoryBitMask == kAlienCategory {
-            endGame(victory: false)
+            //endGame(victory: false)
         }
     }
     
@@ -526,7 +526,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if globalGameData.lives <= 0 {
             // normally, the player would be killed
             // for debugging purposes, this will be added later
-            endGame(victory: false)
+            //endGame(victory: false)
         }
     }
     
@@ -565,7 +565,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             view?.presentScene(gameScene, transition: SKTransition.doorwayWithDuration(1.0))
         } else {
             // if not, then the player wins the game
-            endGame(victory: true)
+            //endGame(victory: true)
         }
         
     }
