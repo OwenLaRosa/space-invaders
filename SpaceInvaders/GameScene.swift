@@ -77,6 +77,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
+        if paused {
+            return
+        }
         
         // wait for the game to start to perform updates
         if isFirstUpdate {
