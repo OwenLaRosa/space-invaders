@@ -13,7 +13,7 @@ class Player: SKSpriteNode {
     var health = 100
     
     init() {
-        super.init(texture: nil, color: kShipColor, size: kShipSize)
+        super.init(texture: SKTexture(image: UIImage(named: "ship.png")!), color: kShipColor, size: kShipSize)
         
         name = kShipName
         addPhysics()
