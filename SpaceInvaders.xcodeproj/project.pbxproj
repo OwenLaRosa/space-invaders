@@ -32,6 +32,8 @@
 		5ABE6A921BFFF158008A9969 /* PauseMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABE6A911BFFF158008A9969 /* PauseMenu.swift */; };
 		5ABF56621BF9223C00856BEE /* MainMenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABF56611BF9223C00856BEE /* MainMenuScene.swift */; };
 		5AEBA48E1CADB3EB00962E4E /* soundfx in Resources */ = {isa = PBXBuildFile; fileRef = 5AEBA48D1CADB3EB00962E4E /* soundfx */; };
+		5AFBE29A1CADC59A00EC89CF /* alien.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AFBE2981CADC59A00EC89CF /* alien.png */; };
+		5AFBE29B1CADC59A00EC89CF /* ship.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AFBE2991CADC59A00EC89CF /* ship.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +85,8 @@
 		5ABE6A911BFFF158008A9969 /* PauseMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PauseMenu.swift; sourceTree = "<group>"; };
 		5ABF56611BF9223C00856BEE /* MainMenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuScene.swift; sourceTree = "<group>"; };
 		5AEBA48D1CADB3EB00962E4E /* soundfx */ = {isa = PBXFileReference; lastKnownFileType = folder; path = soundfx; sourceTree = "<group>"; };
+		5AFBE2981CADC59A00EC89CF /* alien.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alien.png; sourceTree = "<group>"; };
+		5AFBE2991CADC59A00EC89CF /* ship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +178,8 @@
 		5A661F931C3B26B1001AA576 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5AFBE2981CADC59A00EC89CF /* alien.png */,
+				5AFBE2991CADC59A00EC89CF /* ship.png */,
 				5AEBA48D1CADB3EB00962E4E /* soundfx */,
 				5A896E851BDEC5D2006633FF /* AppDelegate.swift */,
 				5A896E871BDEC5D2006633FF /* GameScene.sks */,
@@ -346,6 +352,8 @@
 				5AEBA48E1CADB3EB00962E4E /* soundfx in Resources */,
 				5A896E911BDEC5D2006633FF /* Assets.xcassets in Resources */,
 				5A896E8F1BDEC5D2006633FF /* Main.storyboard in Resources */,
+				5AFBE29A1CADC59A00EC89CF /* alien.png in Resources */,
+				5AFBE29B1CADC59A00EC89CF /* ship.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
