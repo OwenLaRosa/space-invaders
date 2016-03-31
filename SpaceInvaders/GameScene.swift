@@ -38,6 +38,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var alienMoveDirection: MoveDirection = .Right
     var alienShootSpeed = 1.6
     
+    // MARK: - Sounds
+    let playAlienBullet = SKAction.playSoundFileNamed("/soundfx/alien-bullet.wav", waitForCompletion: false)
+    let playBossAlienBullet = SKAction.playSoundFileNamed("/soundfx/bossalien-bullet.wav", waitForCompletion: false)
+    let playShipBullet = SKAction.playSoundFileNamed("/soundfx/ship-bullet.wav", waitForCompletion: false)
+    let playWinningSound = SKAction.playSoundFileNamed("/soundfx/winning-sound.wav", waitForCompletion: false)
+    let playLosingSound = SKAction.playSoundFileNamed("/soundfx/losing-sound.wav", waitForCompletion: false)
+    
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         
@@ -71,6 +78,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // shoot if none of the player's bullets are onscreen
         if childNodeWithName(kPlayerBulletName) == nil {
+            runAction(playShipBullet)
             ship.shoot()
         }
     }
@@ -109,6 +117,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if boss != nil {
             if (currentTime - boss!.shootingInterval) >= bossLastShot {
+                runAction(playBossAlienBullet)
                 boss!.shoot(kAlienSlowBulletSpeed)
                 bossLastShot = currentTime
             }
@@ -422,6 +431,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func shootForAlien(alien: Alien) {
         // determine bullet speed from two possible values, fast and slow
         let bulletSpeed = arc4random_uniform(2)
+        runAction(playAlienBullet)
         if bulletSpeed % 2 == 1 {
             alien.shoot(kAlienFastBulletSpeed)
         } else if bulletSpeed % 2 == 0 {
@@ -463,8 +473,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             node1.removeFromParent()
         } else if contact.bodyA.categoryBitMask == kAlienCategory && contact.bodyB.categoryBitMask == kEarthCategory {
             // any alien has reached earth, the game is lost
+            runAction(playLosingSound)
             //endGame(victory: false)
         } else if contact.bodyA.categoryBitMask == kEarthCategory && contact.bodyB.categoryBitMask == kAlienCategory {
+            runAction(playLosingSound)
             //endGame(victory: false)
         }
     }
@@ -529,6 +541,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if globalGameData.lives <= 0 {
             // normally, the player would be killed
             // for debugging purposes, this will be added later
+            runAction(playLosingSound)
             //endGame(victory: false)
         }
     }
@@ -568,6 +581,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             view?.presentScene(gameScene, transition: SKTransition.doorwayWithDuration(1.0))
         } else {
             // if not, then the player wins the game
+            runAction(playWinningSound)
             //endGame(victory: true)
         }
         
