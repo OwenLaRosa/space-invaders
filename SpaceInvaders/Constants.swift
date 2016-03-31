@@ -35,14 +35,14 @@ let kPlayerStartingLives = 3
 
 let kAlienName = "alien"
 let kBossAlienName = "bossAlien"
-let kAlienSize = CGSize(width: 24, height: 18)
+let kAlienSize = CGSize(width: 24, height: 14)
 let kBossAlienSize = CGSize(width: kAlienSize.width * 1.5, height: kAlienSize.height * 1.5)
 let kAlienColor = SKColor.whiteColor()
 
 let kAlienRows = 5
 let kAlienColumns = 11
 
-let kAlienVerticalSpacing = 6
+let kAlienVerticalSpacing = 10
 let kAlienHorizontalSpacing = 10
 
 let kAlienMovementX = kAlienSize.width/2
