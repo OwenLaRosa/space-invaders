@@ -16,6 +16,8 @@ class Alien: SKSpriteNode {
     init() {
         super.init(texture: SKTexture(image: UIImage(named: "alien.png")!), color: kAlienColor, size: kAlienSize)
         
+        colorBlendFactor = 1.0
+        
         name = kAlienName
         addPhysics()
     }
