@@ -67,6 +67,10 @@ class BossAlien: Alien {
     
     init(type: BossType) {
         super.init()
+        
+        // boss should initially be colored white
+        colorBlendFactor = 0.0
+        
         name = kBossAlienName
         size = kBossAlienSize
         // set the appropriate properties
@@ -85,8 +89,8 @@ class BossAlien: Alien {
     }
     
     private func startAnimation() {
-        let firstAnimation = SKAction.colorizeWithColor(SKColor.cyanColor(), colorBlendFactor: 0.0, duration: 1.5)
-        let secondAnimation = SKAction.colorizeWithColor(SKColor.whiteColor(), colorBlendFactor: 0.0, duration: 1.5)
+        let firstAnimation = SKAction.colorizeWithColor(SKColor.cyanColor(), colorBlendFactor: 1.0, duration: 1.5)
+        let secondAnimation = SKAction.colorizeWithColor(SKColor.cyanColor(), colorBlendFactor: 0.0, duration: 1.5)
         runAction(SKAction.repeatActionForever(SKAction.sequence([firstAnimation, secondAnimation])))
     }
     
