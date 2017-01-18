@@ -27,4 +27,4 @@ Download the zip folder, open the `.xcodeproj` file, and tap the play button wit
 
 Original idea for the game belongs to Taito Corporation.
 Code and image assets created by Owen LaRosa
-Sound effects created by Alex LaRosa
+Sound effects created by [Alex LaRosa](https://www.facebook.com/profile.php?id=100010010267563&lst=100009343198477%3A100010010267563%3A1484707494)
